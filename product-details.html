@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antique Piece Story & Provenance | Curated Antique & Vintage | Aethelgard & Co.</title>
+  <meta name="description" content="View historical documentation, dimensions, provenance certificate summary, and restoration report for this authenticated antique piece.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            heritage: {
+              gold: '#C5A059',
+              goldHover: '#B08C44',
+              mahogany: '#2C1D11',
+              parchment: '#FDFBF7',
+              linen: '#F7F2EA'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    if (localStorage.getItem('aethelgard_theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    if (localStorage.getItem('aethelgard_rtl') === 'true') {
+      document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
+  </script>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-heritage-parchment text-stone-900 dark:bg-[#12100E] dark:text-stone-100 min-h-screen flex flex-col antialiased">
+
+  <!-- Top Announcement Bar & Main Navigation Header (Sticky) -->
+  <header class="header-sticky">
+    <!-- Top Announcement Bar (Above Nav Bar) -->
+    <div class="bg-stone-900 text-stone-300 dark:bg-stone-950 text-xs py-2 px-3 sm:px-4 border-b border-stone-800 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2 sm:gap-4 min-w-0">
+          <span class="truncate text-[11px] sm:text-xs"><i class="fa-solid fa-gem text-amber-500 mr-1 sm:mr-1.5"></i> Certified Guild Antiquarians & Restorers</span>
+          <span class="hidden md:inline text-stone-600">|</span>
+          <span class="hidden md:inline"><i class="fa-solid fa-phone text-stone-400 mr-1"></i> Private Concierge: +44 (0)20 7946 0912</span>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <!-- RTL / LTR Toggle Button (Icon Only) -->
+          <button class="rtl-toggle-btn w-7 h-7 rounded-full bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-amber-400 transition-all flex items-center justify-center cursor-pointer shadow-sm" title="Toggle RTL / LTR Layout" aria-label="Toggle RTL / LTR Layout">
+            <i class="fa-solid fa-right-left text-xs"></i>
+          </button>
+          <!-- Theme Toggle Button (Icon Only) -->
+          <button class="theme-toggle-btn w-7 h-7 rounded-full bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-yellow-400 transition-all flex items-center justify-center cursor-pointer shadow-sm" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
+            <i class="fa-solid fa-moon text-amber-400 text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-700/10 border border-amber-600/30 flex items-center justify-center group-hover:border-amber-600 transition-colors shrink-0">
+          <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-base sm:text-lg"></i>
+        </div>
+        <div class="min-w-0">
+          <span class="font-serif text-base sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100 block leading-none whitespace-nowrap">AETHELGARD & CO.</span>
+          <span class="text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.25em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5 sm:mt-1 whitespace-nowrap">Heritage Antiques & Gallery</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links with Home Dropdown -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-stone-700 dark:text-stone-300">
+        
+        <!-- Home Dropdown -->
+        <div class="relative group" id="home-dropdown-wrapper">
+          <a href="index.html" class="flex items-center gap-1.5 py-2 hover:text-amber-700 dark:hover:text-amber-500 font-semibold transition-colors">
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+          </a>
+          
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 top-full pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50 pointer-events-none group-hover:pointer-events-auto">
+            <div class="bg-heritage-parchment dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-2xl p-2 space-y-1 backdrop-blur-lg">
+              <a href="index.html" class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-amber-700/10 border border-amber-600/20 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:border-amber-600">
+                  <i class="fa-solid fa-landmark text-amber-700 dark:text-amber-500 text-xs"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-stone-900 dark:text-stone-100 group-hover/item:text-amber-700 dark:group-hover/item:text-amber-400">Home 1: Heritage Manor</div>
+                  <div class="text-[10px] text-stone-500 dark:text-stone-400">Classic Showroom & Restorations</div>
+                </div>
+              </a>
+              <a href="index-2.html" class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-amber-700/10 border border-amber-600/20 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:border-amber-600">
+                  <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-xs"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-stone-900 dark:text-stone-100 group-hover/item:text-amber-700 dark:group-hover/item:text-amber-400">Home 2: Royal Collector</div>
+                  <div class="text-[10px] text-stone-500 dark:text-stone-400">Estate Gallery & Rare Vault</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="products.html" class="text-amber-700 dark:text-amber-500 font-semibold">Collection</a>
+        <a href="restoration.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors">Restoration</a>
+        <a href="provenance.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors">Provenance</a>
+        <a href="about.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors">About Us</a>
+        <a href="blog.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors">Blog</a>
+        <a href="contact.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Buttons in Sticky Navbar -->
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <!-- Save / Wishlist Drawer Trigger with Floppy Disk Save Icon -->
+        <button class="wishlist-drawer-trigger relative w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-stone-300 dark:hover:bg-stone-700 transition-all flex items-center justify-center cursor-pointer shadow-sm" title="Saved Collection" aria-label="Saved Collection">
+          <i class="fa-solid fa-floppy-disk text-xs sm:text-sm text-amber-600 dark:text-amber-400"></i>
+          <span class="wishlist-count-badge hidden absolute -top-1 -right-1 w-4 h-4 rounded-full bg-amber-700 text-white text-[9px] font-bold flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Book Viewing CTA Button -->
+        <a href="contact.html#appointment" class="hidden sm:inline-flex btn-heritage-gold text-xs uppercase tracking-wider font-semibold py-2.5 px-4">
+          <i class="fa-regular fa-calendar-check mr-1.5"></i> Book Viewing
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="lg:hidden p-1.5 sm:p-2 text-stone-700 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-500 text-lg sm:text-xl focus:outline-none flex items-center justify-center cursor-pointer" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Breadcrumbs Bar -->
+  <div class="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-xs text-stone-500">
+        <a href="index.html" class="hover:text-amber-700">Home</a> / 
+        <a href="products.html" class="hover:text-amber-700">Catalog</a> / 
+        <span id="detail-breadcrumb-era" class="text-stone-500">Era</span> / 
+        <span id="detail-breadcrumb-title" class="text-stone-800 dark:text-stone-200 font-semibold">Piece Title</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Product Details Section Container -->
+  <section id="product-details-container" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 space-y-16">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Gallery Column -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="relative rounded-lg overflow-hidden heritage-border bg-stone-100 dark:bg-stone-800 aspect-[4/3] group cursor-zoom-in">
+          <img id="detail-main-img" src="" alt="Antique Showcase" class="w-full h-full object-cover">
+          <div class="absolute bottom-3 right-3 bg-stone-900/80 text-white text-xs px-3 py-1.5 rounded flex items-center gap-1.5 backdrop-blur">
+            <i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom / Lightbox
+          </div>
+        </div>
+
+        <!-- Thumbnail Strip -->
+        <div id="detail-thumbs-container" class="flex gap-4 overflow-x-auto pb-2">
+          <!-- Populated dynamically by product-detail.js -->
+        </div>
+      </div>
+
+      <!-- Info Column -->
+      <div class="lg:col-span-5 space-y-6">
+        <div>
+          <span id="detail-era-badge" class="badge-era">Era Label</span>
+          <h1 id="detail-title" class="font-serif text-3xl sm:text-4xl font-bold text-stone-900 dark:text-stone-100 mt-2">Piece Title</h1>
+          <span id="detail-price" class="font-serif text-3xl font-bold text-amber-800 dark:text-amber-500 block mt-3">Price</span>
+        </div>
+
+        <p id="detail-short-desc" class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed border-y border-stone-200 dark:border-stone-800 py-4"></p>
+
+        <!-- Spec Highlights -->
+        <div class="space-y-2 text-xs text-stone-600 dark:text-stone-400">
+          <p><strong class="text-stone-900 dark:text-stone-200">Origin & Maker:</strong> <span id="detail-origin"></span></p>
+          <p><strong class="text-stone-900 dark:text-stone-200">Circa Period:</strong> <span id="detail-circa"></span></p>
+          <p><strong class="text-stone-900 dark:text-stone-200">Materials:</strong> <span id="detail-material"></span></p>
+          <p><strong class="text-stone-900 dark:text-stone-200">Dimensions:</strong> <span id="detail-dimensions"></span></p>
+          <p><strong class="text-stone-900 dark:text-stone-200">Condition Grade:</strong> <span id="detail-condition"></span></p>
+          <p><strong class="text-stone-900 dark:text-stone-200">Registry Doc ID:</strong> <span id="detail-provenance-code" class="font-mono text-amber-700 font-bold"></span></p>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="space-y-3 pt-4">
+          <a id="detail-book-btn" href="#" class="w-full btn-heritage-gold py-3.5 text-center text-xs uppercase tracking-wider font-bold block">
+            <i class="fa-regular fa-calendar-check mr-2"></i> Book Private Viewing Appointment
+          </a>
+
+          <div class="flex gap-3">
+            <button id="detail-inquire-btn" class="flex-1 btn-heritage-primary py-3 text-xs uppercase tracking-wider font-bold">
+              <i class="fa-regular fa-envelope mr-1.5"></i> Inquire Curator
+            </button>
+            <button id="detail-wishlist-btn" class="btn-heritage-outline px-4 py-3 text-xs font-bold" title="Save to Favorites">
+              <i class="fa-regular fa-heart text-base"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="p-4 bg-stone-100 dark:bg-stone-900 rounded heritage-border text-xs text-stone-500 space-y-2">
+          <p><i class="fa-solid fa-certificate text-amber-700 mr-2"></i> Includes signed Certificate of Provenance.</p>
+          <p><i class="fa-solid fa-truck-ramp-box text-amber-700 mr-2"></i> Custom wooden crating & fully insured global transit.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Tabbed Detailed Story & Provenance Section -->
+    <div class="heritage-card rounded-lg p-6 sm:p-8 space-y-6">
+      
+      <!-- Tab Header (Scrollable on mobile) -->
+      <div class="flex border-b border-stone-200 dark:border-stone-800 gap-4 sm:gap-8 overflow-x-auto whitespace-nowrap scrollbar-none pb-1">
+        <button class="detail-tab-btn pb-3 font-serif font-bold text-base sm:text-lg border-b-2 border-amber-700 text-amber-800 dark:text-amber-500 cursor-pointer" data-tab="history">Historical Story</button>
+        <button class="detail-tab-btn pb-3 font-serif font-bold text-base sm:text-lg border-b-2 border-transparent text-stone-500 hover:text-stone-800 dark:hover:text-stone-300 cursor-pointer" data-tab="provenance">Provenance & Certification</button>
+        <button class="detail-tab-btn pb-3 font-serif font-bold text-base sm:text-lg border-b-2 border-transparent text-stone-500 hover:text-stone-800 dark:hover:text-stone-300 cursor-pointer" data-tab="restoration">Restoration History</button>
+      </div>
+
+      <!-- Tab Content 1: Historical Story -->
+      <div id="tab-history" class="detail-tab-pane space-y-4">
+        <h3 class="font-serif font-bold text-xl text-stone-900 dark:text-stone-100">Historical Significance & Background</h3>
+        <p id="detail-full-desc" class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed"></p>
+      </div>
+
+      <!-- Tab Content 2: Provenance & Certification -->
+      <div id="tab-provenance" class="detail-tab-pane hidden space-y-4">
+        <h3 class="font-serif font-bold text-xl text-stone-900 dark:text-stone-100">Certified Heritage Documentation</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+          This piece has been authenticated by our senior appraisal board. Archive records confirm its manufacture, ownership history, and timber origins. A signed hardcopy certificate is included upon acquisition.
+        </p>
+        <div class="p-4 bg-amber-500/10 border border-amber-500/30 rounded inline-block text-xs font-mono">
+          Certificate Serial Number: <span id="detail-cert-id" class="font-bold text-amber-800 dark:text-amber-400">DOC-VERIFIED-18thCENTURY</span>
+        </div>
+      </div>
+
+      <!-- Tab Content 3: Restoration History -->
+      <div id="tab-restoration" class="detail-tab-pane hidden space-y-4">
+        <h3 class="font-serif font-bold text-xl text-stone-900 dark:text-stone-100">Restoration & Conservation Notes</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+          Conserved in our Mayfair workshop using 100% reversible traditional materials. High-points hand-polished with organic beeswax and spirit gum. Original lock mechanisms serviced and fully operational.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Related Antique Pieces -->
+    <div class="space-y-6">
+      <h3 class="font-serif font-bold text-2xl text-stone-900 dark:text-stone-100">Related Period Masterpieces</h3>
+      <div id="detail-related-container" class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Rendered dynamically by product-detail.js -->
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="modal-overlay">
+    <div class="relative max-w-4xl max-h-[90vh] p-2 bg-stone-950 rounded shadow-2xl">
+      <button class="close-modal-trigger absolute top-4 right-4 text-white text-2xl hover:text-amber-400 z-50"><i class="fa-solid fa-xmark"></i></button>
+      <img id="lightbox-img" src="" class="max-h-[85vh] w-auto mx-auto object-contain">
+    </div>
+  </div>
+
+  <!-- Main Footer -->
+  <footer class="bg-[#0b0f19] text-stone-400 pt-16 pb-8 border-t border-stone-800/80 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Grid: 3 Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-stone-800/80">
+        
+        <!-- Column 1: Brand & Social (Span 5) -->
+        <div class="lg:col-span-5 space-y-4">
+          <a href="index.html" class="inline-flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-xl bg-amber-700/20 border border-amber-600/40 flex items-center justify-center shadow-inner shrink-0 group-hover:border-amber-500 transition-colors">
+              <i class="fa-solid fa-crown text-amber-500 text-lg"></i>
+            </div>
+            <span class="font-serif text-lg sm:text-xl font-bold tracking-tight text-white block leading-snug group-hover:text-amber-400 transition-colors">AETHELGARD & CO.</span>
+          </a>
+          
+          <p class="text-xs text-stone-400 leading-relaxed max-w-sm">
+            Premier catalog storefront for genuine 18th & 19th-century European antique furniture, certified provenance, and master guild restoration services. Serving retail drivers, trade collectors, and commercial heritage estates worldwide.
+          </p>
+
+          <!-- Social Links Buttons (Square Rounded) -->
+          <div class="flex flex-wrap gap-2 text-stone-400 pt-2">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-9 h-9 rounded-lg bg-[#161d2f] border border-stone-800 flex items-center justify-center hover:text-white hover:bg-amber-700/40 hover:border-amber-600/50 transition-all shadow-sm">
+              <i class="fa-brands fa-facebook-f text-xs"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter X" class="w-9 h-9 rounded-lg bg-[#161d2f] border border-stone-800 flex items-center justify-center hover:text-white hover:bg-amber-700/40 hover:border-amber-600/50 transition-all shadow-sm">
+              <i class="fa-brands fa-x-twitter text-xs"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 rounded-lg bg-[#161d2f] border border-stone-800 flex items-center justify-center hover:text-white hover:bg-amber-700/40 hover:border-amber-600/50 transition-all shadow-sm">
+              <i class="fa-brands fa-instagram text-xs"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-9 h-9 rounded-lg bg-[#161d2f] border border-stone-800 flex items-center justify-center hover:text-white hover:bg-amber-700/40 hover:border-amber-600/50 transition-all shadow-sm">
+              <i class="fa-brands fa-youtube text-xs"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-[#161d2f] border border-stone-800 flex items-center justify-center hover:text-white hover:bg-amber-700/40 hover:border-amber-600/50 transition-all shadow-sm">
+              <i class="fa-brands fa-linkedin-in text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: QUICK LINKS (Span 3) -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="font-sans font-bold text-white text-xs uppercase tracking-widest mb-4">QUICK LINKS</h4>
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <ul class="space-y-2.5">
+              <li><a href="index.html" class="hover:text-amber-400 transition-colors">Home</a></li>
+              <li><a href="products.html" class="hover:text-amber-400 transition-colors">Collection</a></li>
+              <li><a href="restoration.html" class="hover:text-amber-400 transition-colors">Restoration</a></li>
+              <li><a href="provenance.html" class="hover:text-amber-400 transition-colors">Provenance</a></li>
+            </ul>
+            <ul class="space-y-2.5">
+              <li><a href="about.html" class="hover:text-amber-400 transition-colors">About</a></li>
+              <li><a href="blog.html" class="hover:text-amber-400 transition-colors">Blog</a></li>
+              <li><a href="contact.html" class="hover:text-amber-400 transition-colors">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Column 3: WAREHOUSE / SHOWROOM LOCATION (Span 4) -->
+        <div class="lg:col-span-4 space-y-3">
+          <h4 class="font-sans font-bold text-white text-xs uppercase tracking-widest mb-4">WAREHOUSE LOCATION</h4>
+          <ul class="space-y-3 text-xs text-stone-400">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-location-dot text-amber-500 mt-0.5 shrink-0 text-sm"></i>
+              <span>4820 Motorway Industrial Park,<br>Suite 100, Mayfair, London W1S 2LY</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-phone text-amber-500 shrink-0 text-xs"></i>
+              <a href="tel:+442079460912" class="hover:text-amber-400 transition-colors">+44 (0)20 7946 0912</a>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-envelope text-amber-500 shrink-0 text-xs"></i>
+              <a href="mailto:concierge@aethelgard.co.uk" class="hover:text-amber-400 transition-colors">concierge@aethelgard.co.uk</a>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-clock text-amber-500 shrink-0 text-xs"></i>
+              <span>Mon–Fri: 7am – 7pm GMT</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Sub-Footer Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500 gap-4">
+        <p>© 2026 Aethelgard & Co. All rights reserved.</p>
+        
+        <!-- Payment Badges matching reference image -->
+        <div class="flex items-center gap-2">
+          <!-- Visa -->
+          <div class="h-6 px-2.5 bg-[#1a1f71] rounded flex items-center justify-center shadow-sm">
+            <span class="text-white font-black text-xs italic tracking-tight">VISA</span>
+          </div>
+          <!-- Mastercard -->
+          <div class="h-6 px-2.5 bg-[#222222] rounded flex items-center justify-center shadow-sm gap-0.5">
+            <span class="w-3 h-3 rounded-full bg-[#eb001b] inline-block -mr-1.5 opacity-95"></span>
+            <span class="w-3 h-3 rounded-full bg-[#f79e1b] inline-block opacity-90"></span>
+          </div>
+          <!-- PayPal -->
+          <div class="h-6 px-2.5 bg-[#0079C1] rounded flex items-center justify-center shadow-sm">
+            <span class="text-white font-bold text-[11px] italic">PayPal</span>
+          </div>
+          <!-- Apple Pay -->
+          <div class="h-6 px-2.5 bg-white text-black rounded flex items-center justify-center shadow-sm font-semibold text-[11px] gap-1">
+            <i class="fa-brands fa-apple text-xs"></i> Pay
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Wishlist Slide-Over Drawer (💾 Saved Collection) -->
+  <div id="wishlist-drawer" class="modal-overlay">
+    <div class="fixed inset-y-0 right-0 max-w-sm w-full bg-heritage-parchment dark:bg-stone-900 border-l border-stone-300 dark:border-stone-800 shadow-2xl flex flex-col justify-between z-50 overflow-hidden">
+      <div class="p-4 sm:p-5 border-b border-stone-200 dark:border-stone-800 flex justify-between items-center bg-stone-100/80 dark:bg-stone-950">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-floppy-disk text-amber-600 dark:text-amber-400 text-lg"></i>
+          <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100">Saved Collection</h3>
+        </div>
+        <button id="close-wishlist-drawer" class="w-9 h-9 rounded-full flex items-center justify-center text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Close Saved Collection">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+      <div id="wishlist-drawer-items" class="flex-1 overflow-y-auto p-4 space-y-4">
+        <!-- Injected dynamically by main.js renderWishlistDrawer() -->
+      </div>
+      <div class="p-4 border-t border-stone-200 dark:border-stone-800 bg-stone-100/90 dark:bg-stone-950 space-y-2">
+        <a href="contact.html#appointment" class="w-full btn-heritage-gold py-3 text-center text-xs uppercase tracking-wider font-semibold block shadow-sm">
+          <i class="fa-regular fa-envelope mr-1.5"></i> Inquire About Saved Pieces
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu-drawer" class="modal-overlay">
+    <div class="fixed inset-y-0 left-0 max-w-xs w-full bg-heritage-parchment dark:bg-stone-900 border-r border-stone-300 dark:border-stone-800 shadow-2xl flex flex-col justify-between z-50 overflow-hidden">
+      <!-- Header -->
+      <div class="p-4 sm:p-5 border-b border-stone-200 dark:border-stone-800 flex justify-between items-center bg-stone-100/80 dark:bg-stone-950">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-amber-700/10 border border-amber-600/30 flex items-center justify-center">
+            <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-sm"></i>
+          </div>
+          <div>
+            <span class="font-serif font-bold text-base block leading-none text-stone-900 dark:text-stone-100">AETHELGARD & CO.</span>
+            <span class="text-[9px] tracking-[0.2em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5">Heritage Gallery</span>
+          </div>
+        </div>
+        <button id="close-mobile-menu" class="w-10 h-10 rounded-full flex items-center justify-center text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-lg" aria-label="Close Menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <!-- Links -->
+      <nav class="flex-1 overflow-y-auto p-5 space-y-1 font-serif text-base text-stone-800 dark:text-stone-200">
+        
+        <!-- Home Submenu -->
+        <div class="rounded-lg bg-amber-700/10 dark:bg-amber-900/20 p-2 space-y-1">
+          <div class="flex items-center justify-between px-2 py-1 text-xs uppercase tracking-widest font-bold text-amber-800 dark:text-amber-400">
+            <span><i class="fa-solid fa-house mr-1.5"></i> Home Showrooms</span>
+          </div>
+          <a href="index.html" class="flex items-center justify-between py-2 px-2.5 rounded hover:bg-amber-700/15 text-stone-800 dark:text-stone-200 text-sm font-sans transition-colors">
+            <span>Home 1: Heritage Manor</span>
+            <i class="fa-solid fa-angle-right text-xs opacity-50"></i>
+          </a>
+          <a href="index-2.html" class="flex items-center justify-between py-2 px-2.5 rounded hover:bg-amber-700/15 text-stone-800 dark:text-stone-200 text-sm font-sans transition-colors">
+            <span>Home 2: Royal Collector</span>
+            <i class="fa-solid fa-angle-right text-xs opacity-50"></i>
+          </a>
+        </div>
+
+        <a href="products.html" class="block py-2.5 px-3 rounded-lg bg-amber-700/10 dark:bg-amber-500/10 font-bold text-amber-800 dark:text-amber-400 transition-colors">Collection</a>
+        <a href="restoration.html" class="block py-2.5 px-3 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors">Restoration Workshop</a>
+        <a href="provenance.html" class="block py-2.5 px-3 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors">Provenance & Guarantee</a>
+        <a href="about.html" class="block py-2.5 px-3 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors">About Us</a>
+        <a href="blog.html" class="block py-2.5 px-3 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors">Curator's Blog</a>
+        <a href="contact.html" class="block py-2.5 px-3 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors">Contact Gallery</a>
+      </nav>
+
+      <!-- Footer CTA -->
+      <div class="p-5 border-t border-stone-200 dark:border-stone-800 bg-stone-100/50 dark:bg-stone-950 space-y-3">
+        <a href="contact.html#appointment" class="w-full btn-heritage-gold text-center text-xs uppercase font-bold tracking-wider py-3 block">
+          <i class="fa-regular fa-calendar-check mr-2"></i> Book Private Viewing
+        </a>
+        <div class="flex items-center justify-between text-xs text-stone-500 pt-1">
+          <span><i class="fa-solid fa-phone text-amber-600 mr-1"></i> +44 (0)20 7946 0912</span>
+          <span>Mayfair, UK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Scripts -->
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/product-detail.js"></script>
+</body>
+</html>
