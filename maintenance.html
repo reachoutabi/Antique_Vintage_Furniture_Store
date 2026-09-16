@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Exhibition Launching Soon | Curated Antique & Vintage | Aethelgard & Co.</title>
+  <meta name="description" content="Our annual Private Estate Collection exhibition launches soon. Subscribe for early VIP preview access.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            heritage: {
+              gold: '#C5A059',
+              goldHover: '#B08C44',
+              mahogany: '#2C1D11',
+              parchment: '#FDFBF7',
+              linen: '#F7F2EA'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    if (localStorage.getItem('aethelgard_theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    if (localStorage.getItem('aethelgard_rtl') === 'true') {
+      document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
+  </script>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-stone-950 text-white min-h-screen flex flex-col justify-between antialiased relative overflow-hidden">
+
+  <div class="absolute inset-0 z-0 opacity-20">
+    <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=2000&q=80" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Header -->
+  <header class="relative z-10 p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
+    <div class="brand-logo-container flex items-center gap-3" dir="ltr">
+      <div class="w-10 h-10 rounded-full bg-amber-700/20 border border-amber-600/40 flex items-center justify-center">
+        <i class="fa-solid fa-crown text-amber-500 text-lg"></i>
+      </div>
+      <span class="font-serif text-2xl font-bold tracking-tight text-left">AETHELGARD & CO.</span>
+    </div>
+    <a href="index.html" class="btn-heritage-gold text-xs py-2 px-4">Visit Main Showroom</a>
+  </header>
+
+  <!-- Main Countdown Content -->
+  <main class="relative z-10 max-w-2xl mx-auto px-4 text-center space-y-8 py-12">
+    <div class="space-y-3">
+      <span class="text-xs uppercase tracking-[0.3em] text-amber-400 font-bold block">Annual Exhibition Sourcing</span>
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold">Unveiling the 2026 Private Estate Collection</h1>
+      <p class="text-stone-300 text-sm max-w-md mx-auto">Our gallery is currently curating 40 newly authenticated 18th and 19th-century European furniture acquisitions.</p>
+    </div>
+
+    <!-- Live JS Countdown Timer -->
+    <div class="grid grid-cols-4 gap-4 max-w-md mx-auto font-serif">
+      <div class="heritage-card bg-stone-900/80 p-4 rounded text-center border-amber-600/30">
+        <span id="cd-days" class="text-3xl sm:text-4xl font-bold text-amber-400 block">14</span>
+        <span class="text-[10px] text-stone-400 uppercase tracking-widest font-sans">Days</span>
+      </div>
+      <div class="heritage-card bg-stone-900/80 p-4 rounded text-center border-amber-600/30">
+        <span id="cd-hours" class="text-3xl sm:text-4xl font-bold text-amber-400 block">08</span>
+        <span class="text-[10px] text-stone-400 uppercase tracking-widest font-sans">Hours</span>
+      </div>
+      <div class="heritage-card bg-stone-900/80 p-4 rounded text-center border-amber-600/30">
+        <span id="cd-mins" class="text-3xl sm:text-4xl font-bold text-amber-400 block">42</span>
+        <span class="text-[10px] text-stone-400 uppercase tracking-widest font-sans">Mins</span>
+      </div>
+      <div class="heritage-card bg-stone-900/80 p-4 rounded text-center border-amber-600/30">
+        <span id="cd-secs" class="text-3xl sm:text-4xl font-bold text-amber-400 block">19</span>
+        <span class="text-[10px] text-stone-400 uppercase tracking-widest font-sans">Secs</span>
+      </div>
+    </div>
+
+    <!-- VIP Early Access Form -->
+    <div class="max-w-md mx-auto space-y-3">
+      <p class="text-xs text-stone-400">Request VIP early-catalog invitation prior to public release.</p>
+      <form onsubmit="event.preventDefault(); showToast('VIP invitation reserved! Check your email.', 'success'); this.reset();" class="flex gap-2">
+        <input type="email" required placeholder="Enter VIP email address" class="form-input text-xs text-stone-900 dark:text-stone-100 flex-1">
+        <button type="submit" class="btn-heritage-gold text-xs px-5 py-3 font-bold uppercase tracking-wider flex-shrink-0">Reserve VIP Access</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 p-6 text-center text-xs text-stone-500 border-t border-stone-900 space-y-2">
+    <p>© 2026 Aethelgard & Co. Heritage Antiques • 42 Bond Street, Mayfair, London</p>
+    <div class="flex justify-center gap-4 text-[11px]">
+      <button type="button" onclick="openPolicyModal('privacy')" class="hover:text-amber-400 transition-colors cursor-pointer">Privacy Policy</button>
+      <button type="button" onclick="openPolicyModal('terms')" class="hover:text-amber-400 transition-colors cursor-pointer">Terms of Provenance</button>
+      <a href="index.html" class="hover:text-amber-400 transition-colors">Showroom</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Live Countdown Script
+    const targetDate = new Date().getTime() + (14 * 24 * 60 * 60 * 1000);
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      if (diff > 0) {
+        document.getElementById('cd-days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+        document.getElementById('cd-hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+        document.getElementById('cd-mins').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+        document.getElementById('cd-secs').textContent = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1458 @@
+/* ==========================================================================
+   Aethelgard & Co. - Antique & Vintage Furniture Store CSS
+   ThemeForest Ready | Warm Heritage Aesthetics | Light/Dark & RTL Support
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Font Families */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Color System - Light Mode (Parchment & Warm Walnut) */
+  --bg-primary: #FDFBF7;
+  --bg-secondary: #F7F2EA;
+  --bg-tertiary: #EFE8DC;
+  --bg-card: #FFFFFF;
+  --bg-modal: #FDFBF7;
+  
+  --text-primary: #24211E;
+  --text-secondary: #585048;
+  --text-muted: #887E74;
+  --text-inverse: #FDFBF7;
+
+  --accent-gold: #C5A059;
+  --accent-gold-hover: #B08C44;
+  --accent-gold-light: rgba(197, 160, 89, 0.12);
+
+  --wood-mahogany: #2C1D11;
+  --wood-mahogany-hover: #1A110A;
+  
+  --border-color: #E6DFC4;
+  --border-light: #F0EAD9;
+  --border-dark: #38302A;
+
+  --shadow-sm: 0 2px 8px rgba(44, 29, 17, 0.04);
+  --shadow-md: 0 8px 24px rgba(44, 29, 17, 0.08);
+  --shadow-lg: 0 16px 40px rgba(44, 29, 17, 0.12);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* Dark Mode Overrides ("Gallery at Dusk") */
+html.dark {
+  --bg-primary: #12100E;
+  --bg-secondary: #1A1715;
+  --bg-tertiary: #24201C;
+  --bg-card: #1D1A17;
+  --bg-modal: #181513;
+
+  --text-primary: #ECE7DF;
+  --text-secondary: #BDB5A9;
+  --text-muted: #888075;
+  --text-inverse: #12100E;
+
+  --accent-gold: #D8B268;
+  --accent-gold-hover: #E8C379;
+  --accent-gold-light: rgba(216, 178, 104, 0.15);
+
+  --wood-mahogany: #E5D5C3;
+  --wood-mahogany-hover: #FFFFFF;
+
+  --border-color: #2D2722;
+  --border-light: #241F1B;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Base Reset & Globals */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold-hover);
+}
+
+/* Gold Gradient & Utility Classes */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 50%, #997834 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heritage-border {
+  border: 1px solid var(--border-color);
+}
+
+.heritage-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.heritage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-gold);
+}
+
+/* Custom Buttons */
+.btn-heritage-primary {
+  background-color: #2C1D11;
+  color: #FDFBF7;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  border: 1px solid #2C1D11;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+html.dark .btn-heritage-primary {
+  background-color: #C5A059;
+  color: #12100E;
+  border-color: #C5A059;
+}
+
+.btn-heritage-primary:hover {
+  background-color: #C5A059;
+  color: #12100E;
+  border-color: #C5A059;
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.3);
+}
+
+/* Protect FontAwesome Icons from font-family / font-weight overrides */
+i[class*="fa-"],
+i.fa-solid,
+i.fa-regular,
+i.fa-brands,
+.fa-solid,
+.fa-regular,
+.fa-brands {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  line-height: 1 !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+i.fa-solid,
+.fa-solid {
+  font-weight: 900 !important;
+}
+
+i.fa-regular,
+.fa-regular {
+  font-weight: 400 !important;
+}
+
+i.fa-brands,
+.fa-brands {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+}
+
+/* GOLD BUTTON STYLING & HIGH CONTRAST */
+.btn-heritage-gold,
+a.btn-heritage-gold,
+button.btn-heritage-gold {
+  background-color: #C5A059 !important;
+  border: 1px solid #C5A059 !important;
+  color: #12100E !important;
+  font-family: var(--font-sans);
+  font-weight: 700 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  box-sizing: border-box !important;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-heritage-gold *,
+.btn-heritage-gold span {
+  background-color: transparent !important;
+  color: #12100E !important;
+  font-weight: 700 !important;
+}
+
+.btn-heritage-gold i {
+  background-color: transparent !important;
+  color: #12100E !important;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+
+.btn-heritage-gold:hover,
+a.btn-heritage-gold:hover,
+button.btn-heritage-gold:hover {
+  background-color: #B08C44 !important;
+  border-color: #B08C44 !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.4);
+}
+
+.btn-heritage-gold:hover *,
+.btn-heritage-gold:hover span,
+.btn-heritage-gold:hover i {
+  color: #000000 !important;
+}
+
+/* OUTLINE BUTTON STYLING & CONTRAST */
+.btn-heritage-outline,
+a.btn-heritage-outline,
+button.btn-heritage-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-heritage-outline * {
+  background-color: transparent;
+}
+
+.btn-heritage-outline:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background-color: var(--accent-gold-light);
+}
+
+/* DARK CONTAINERS & HERO SECTION BUTTON CONTRAST OVERRIDES */
+.bg-stone-900 .btn-heritage-outline,
+.bg-stone-950 .btn-heritage-outline,
+.bg-\[\#0b0f19\] .btn-heritage-outline,
+.hero-content-left .btn-heritage-outline,
+section.relative .btn-heritage-outline,
+div.relative .btn-heritage-outline,
+.dark .btn-heritage-outline,
+html.dark .btn-heritage-outline,
+[dir="rtl"] .bg-stone-900 .btn-heritage-outline,
+[dir="rtl"] .bg-stone-950 .btn-heritage-outline {
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.bg-stone-900 .btn-heritage-outline *,
+.bg-stone-950 .btn-heritage-outline *,
+.bg-\[\#0b0f19\] .btn-heritage-outline *,
+.hero-content-left .btn-heritage-outline *,
+section.relative .btn-heritage-outline *,
+.dark .btn-heritage-outline * {
+  color: #FFFFFF !important;
+}
+
+.bg-stone-900 .btn-heritage-outline:hover,
+.bg-stone-950 .btn-heritage-outline:hover,
+.bg-\[\#0b0f19\] .btn-heritage-outline:hover,
+.hero-content-left .btn-heritage-outline:hover,
+.dark .btn-heritage-outline:hover {
+  color: #F59E0B !important;
+  border-color: #F59E0B !important;
+  background-color: rgba(245, 158, 11, 0.15) !important;
+}
+
+.bg-stone-900 .btn-heritage-outline:hover *,
+.bg-stone-950 .btn-heritage-outline:hover *,
+.hero-content-left .btn-heritage-outline:hover * {
+  color: #F59E0B !important;
+}
+
+/* Header & Sticky Nav */
+.header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(253, 251, 247, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 12px rgba(44, 29, 17, 0.04);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-sticky nav a {
+  white-space: nowrap !important;
+}
+
+.header-sticky .brand-logo-container {
+  white-space: nowrap !important;
+  flex-shrink: 0;
+}
+
+html.dark .header-sticky {
+  background-color: rgba(18, 16, 14, 0.96);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Before / After Slider */
+.ba-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  height: auto;
+  min-height: 220px;
+  max-height: 460px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .ba-container {
+    aspect-ratio: 16 / 11;
+    min-height: 200px;
+  }
+}
+
+.ba-after-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.ba-before-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  border-right: 2px solid var(--accent-gold);
+  z-index: 10;
+}
+
+.ba-before-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background-color: var(--accent-gold);
+  color: #12100E;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  cursor: ew-resize;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.badge-era {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  background-color: rgba(28, 25, 23, 0.88);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: inline-block;
+  z-index: 10;
+}
+
+html.dark .badge-era {
+  background-color: rgba(18, 16, 14, 0.92);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.6);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.badge-provenance {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+  background-color: rgba(106, 123, 102, 0.15);
+  color: #6A7B66;
+  border: 1px solid rgba(106, 123, 102, 0.3);
+}
+
+html.dark .badge-provenance {
+  color: #8CA387;
+}
+
+/* Toast Notifications */
+#toast-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+[dir="rtl"] #toast-container {
+  right: auto;
+  left: 2rem;
+}
+
+.toast-item {
+  pointer-events: auto;
+  background-color: var(--bg-card);
+  border: 1px solid var(--accent-gold);
+  color: var(--text-primary);
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: toastIn 0.3s ease forwards;
+  max-width: 360px;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Overlay & Slide Drawers */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background-color: rgba(18, 16, 14, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: var(--bg-modal);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+/* Off-Canvas Drawers Transitions */
+#mobile-menu-drawer > div {
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[dir="rtl"] #mobile-menu-drawer > div {
+  transform: translateX(100%);
+}
+
+#mobile-menu-drawer.active > div {
+  transform: translateX(0);
+}
+
+#wishlist-drawer > div,
+#mobile-filter-drawer > div {
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[dir="rtl"] #wishlist-drawer > div,
+[dir="rtl"] #mobile-filter-drawer > div {
+  transform: translateX(-100%);
+}
+
+#wishlist-drawer.active > div,
+#mobile-filter-drawer.active > div {
+  transform: translateX(0);
+}
+
+/* Mobile Utilities */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Form Styling */
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  height: 44px !important;
+  min-height: 44px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.6rem 0.85rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Search Input Icon Padding Protection */
+.relative .form-input.pl-8,
+.relative .form-input.pl-9,
+.relative .form-input.pl-10,
+.relative input.pl-8,
+.relative input.pl-9,
+.relative input.pl-10,
+input.pl-8,
+input.pl-9,
+input.pl-10,
+.pl-8,
+.pl-9,
+.pl-10 {
+  padding-left: 2.5rem !important;
+}
+
+[dir="rtl"] .relative .form-input.pl-8,
+[dir="rtl"] .relative .form-input.pl-9,
+[dir="rtl"] .relative .form-input.pl-10,
+[dir="rtl"] input.pl-8,
+[dir="rtl"] input.pl-9,
+[dir="rtl"] input.pl-10,
+[dir="rtl"] .pl-8,
+[dir="rtl"] .pl-9,
+[dir="rtl"] .pl-10 {
+  padding-right: 2.5rem !important;
+  padding-left: 0.85rem !important;
+}
+
+.form-textarea {
+  height: auto !important;
+  min-height: 100px !important;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px var(--accent-gold-light);
+}
+
+/* Explicit Button Centering Override */
+.justify-center > .btn-heritage-gold,
+.text-center > .btn-heritage-gold,
+div.justify-center .btn-heritage-gold,
+.justify-center > .btn-heritage-outline,
+.text-center > .btn-heritage-outline {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Scroll To Top Button & Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+#scroll-to-top-btn {
+  z-index: 99;
+}
+
+/* Global Left Alignment in both LTR & RTL Layouts */
+body,
+main,
+section,
+article,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+li,
+ul,
+ol,
+label,
+[dir="rtl"],
+[dir="rtl"] body,
+[dir="rtl"] main,
+[dir="rtl"] section,
+[dir="rtl"] article,
+[dir="rtl"] div,
+[dir="rtl"] p,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] span,
+[dir="rtl"] a,
+[dir="rtl"] li,
+[dir="rtl"] ul,
+[dir="rtl"] ol,
+[dir="rtl"] label {
+  text-align: left !important;
+  unicode-bidi: plaintext;
+}
+
+/* Explicit text alignment helper overrides */
+.text-center,
+.text-center *,
+.text-center span,
+.text-center p,
+.text-center h1,
+.text-center h2,
+.text-center h3,
+.text-center h4,
+.text-center h5,
+.text-center h6,
+[dir="rtl"] .text-center,
+[dir="rtl"] .text-center *,
+[dir="rtl"] .text-center span,
+[dir="rtl"] .text-center p,
+[dir="rtl"] .text-center h1,
+[dir="rtl"] .text-center h2,
+[dir="rtl"] .text-center h3,
+[dir="rtl"] .text-center h4,
+[dir="rtl"] .text-center h5,
+[dir="rtl"] .text-center h6 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.text-center .btn-heritage-primary,
+.text-center .btn-heritage-gold,
+.text-center .btn-heritage-outline,
+[dir="rtl"] .text-center .btn-heritage-primary,
+[dir="rtl"] .text-center .btn-heritage-gold,
+[dir="rtl"] .text-center .btn-heritage-outline {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-content: center !important;
+}
+
+.text-left,
+[dir="rtl"] .text-left {
+  text-align: left !important;
+}
+
+.text-right,
+[dir="rtl"] .text-right {
+  text-align: right !important;
+}
+
+/* Accordion Summary Styling: Question text LTR & Chevron Arrow at RIGHT END */
+details summary,
+[dir="rtl"] details summary {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+details summary *,
+[dir="rtl"] details summary * {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}
+
+details summary .fa-chevron-down,
+details summary .fa-chevron-right,
+details summary .fa-chevron-up,
+details summary i,
+[dir="rtl"] details summary .fa-chevron-down,
+[dir="rtl"] details summary .fa-chevron-right,
+[dir="rtl"] details summary .fa-chevron-up,
+[dir="rtl"] details summary i {
+  order: 99 !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+/* Force Left Alignment for all form controls, inputs, textareas, selects, options, labels and placeholders in both LTR & RTL layouts */
+input,
+select,
+textarea,
+label,
+option,
+.form-input,
+.form-select,
+.form-textarea,
+.dir-auto,
+[dir="rtl"] input,
+[dir="rtl"] select,
+[dir="rtl"] textarea,
+[dir="rtl"] label,
+[dir="rtl"] option,
+[dir="rtl"] .form-input,
+[dir="rtl"] .form-select,
+[dir="rtl"] .form-textarea,
+[dir="rtl"] .dir-auto {
+  text-align: left !important;
+  direction: ltr !important;
+  unicode-bidi: plaintext;
+}
+
+/* Left Align Placeholders */
+::placeholder,
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+[dir="rtl"] ::placeholder,
+[dir="rtl"] ::-webkit-input-placeholder,
+[dir="rtl"] ::-moz-placeholder,
+[dir="rtl"] :-ms-input-placeholder {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* Form Select padding for LTR dropdown arrow */
+select,
+.form-select,
+[dir="rtl"] select,
+[dir="rtl"] .form-select {
+  padding-left: 0.85rem !important;
+  padding-right: 2.25rem !important;
+  background-position: right 0.75rem center !important;
+}
+
+/* Button Left Alignment & Icon Flex Spacing */
+.btn-heritage-primary,
+.btn-heritage-gold,
+.btn-heritage-outline,
+[dir="rtl"] .btn-heritage-primary,
+[dir="rtl"] .btn-heritage-gold,
+[dir="rtl"] .btn-heritage-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left !important;
+  gap: 0.5rem;
+}
+
+/* Footer Alignment - Always Left Aligned in both LTR & RTL Layouts */
+footer,
+footer *,
+[dir="rtl"] footer,
+[dir="rtl"] footer * {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+[dir="rtl"] footer .flex,
+[dir="rtl"] footer div,
+[dir="rtl"] footer a,
+[dir="rtl"] footer li {
+  flex-direction: row !important;
+}
+
+[dir="rtl"] footer .flex-col {
+  flex-direction: column !important;
+}
+
+@media (min-width: 640px) {
+  [dir="rtl"] footer .sm\:flex-row {
+    flex-direction: row !important;
+  }
+}
+
+
+/* Ensure Brand Logo icon is ALWAYS to the left of the brand name in both LTR and RTL modes */
+.brand-logo-container,
+[dir="rtl"] .brand-logo-container {
+  direction: ltr !important;
+  flex-direction: row !important;
+}
+
+[dir="rtl"] .brand-logo-container span,
+[dir="rtl"] .brand-logo-container div {
+  text-align: left !important;
+}
+
+/* Ensure Navbar Home Dropdown Menu is ALWAYS Left-Aligned and LTR in both LTR & RTL layouts */
+#home-dropdown-wrapper,
+#home-dropdown-wrapper *,
+[dir="rtl"] #home-dropdown-wrapper,
+[dir="rtl"] #home-dropdown-wrapper * {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+#home-dropdown-wrapper a.flex,
+[dir="rtl"] #home-dropdown-wrapper a.flex,
+#home-dropdown-wrapper .flex,
+[dir="rtl"] #home-dropdown-wrapper .flex {
+  flex-direction: row !important;
+}
+
+[dir="rtl"] #home-dropdown-wrapper .absolute {
+  left: 0 !important;
+  right: auto !important;
+}
+
+/* ==========================================================================
+   ICON & TEXT PAIRING ALIGNMENT IN BOTH LTR & RTL LAYOUTS
+   Ensures that icons inside buttons, badges, list items, logos, dropdown items,
+   cards, links, and input groups stay positioned on the LEFT side of text labels
+   in both LTR and RTL mode.
+   ========================================================================== */
+
+/* 1. Ensure all icon-text containers enforce LTR direction and row layout */
+.btn-heritage-primary,
+.btn-heritage-gold,
+.btn-heritage-outline,
+.badge:has(> i),
+.badge:has(> svg),
+.flex:has(> i),
+.flex:has(> svg),
+.inline-flex:has(> i),
+.inline-flex:has(> svg),
+div:has(> i),
+div:has(> svg),
+span:has(> i),
+span:has(> svg),
+a:has(> i),
+a:has(> svg),
+button:has(> i),
+button:has(> svg),
+li:has(> i),
+li:has(> svg),
+p:has(> i),
+p:has(> svg),
+label:has(> i),
+label:has(> svg),
+[dir="rtl"] .btn-heritage-primary,
+[dir="rtl"] .btn-heritage-gold,
+[dir="rtl"] .btn-heritage-outline,
+[dir="rtl"] .badge:has(> i),
+[dir="rtl"] .badge:has(> svg),
+[dir="rtl"] .flex:has(> i),
+[dir="rtl"] .flex:has(> svg),
+[dir="rtl"] .inline-flex:has(> i),
+[dir="rtl"] .inline-flex:has(> svg),
+[dir="rtl"] div:has(> i),
+[dir="rtl"] div:has(> svg),
+[dir="rtl"] span:has(> i),
+[dir="rtl"] span:has(> svg),
+[dir="rtl"] a:has(> i),
+[dir="rtl"] a:has(> svg),
+[dir="rtl"] button:has(> i),
+[dir="rtl"] button:has(> svg),
+[dir="rtl"] li:has(> i),
+[dir="rtl"] li:has(> svg),
+[dir="rtl"] p:has(> i),
+[dir="rtl"] p:has(> svg),
+[dir="rtl"] label:has(> i),
+[dir="rtl"] label:has(> svg) {
+  direction: ltr !important;
+  flex-direction: row !important;
+}
+
+/* 2. Force any icon (i or svg) inside an icon-text pairing to have order -1 so it is ALWAYS on the LEFT */
+i,
+svg,
+[dir="rtl"] i,
+[dir="rtl"] svg {
+  order: -1 !important;
+}
+
+/* ==========================================================================
+   THEME CONTRAST & ACCESSIBILITY VISIBILITY FIXES (LIGHT & DARK MODES)
+   ========================================================================== */
+
+/* Light Mode Contrast Adjustments */
+html:not(.dark) .text-stone-400 {
+  color: #6B6156 !important;
+}
+
+html:not(.dark) .text-stone-500 {
+  color: #4A423A !important;
+}
+
+html:not(.dark) .text-stone-600 {
+  color: #332D27 !important;
+}
+
+/* Dark Mode High-Contrast Visibility Adjustments */
+html.dark .text-stone-400 {
+  color: #C2B8AA !important;
+}
+
+html.dark .text-stone-500 {
+  color: #D4C9BA !important;
+}
+
+html.dark .text-stone-600 {
+  color: #E6DCCE !important;
+}
+
+html.dark .text-stone-700 {
+  color: #F5EFE6 !important;
+}
+
+html.dark .text-stone-800,
+html.dark .text-stone-900 {
+  color: #FDFBF7 !important;
+}
+
+/* Form Controls, Inputs, Select Options, Textareas Visibility */
+input,
+select,
+textarea {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+html:not(.dark) input,
+html:not(.dark) select,
+html:not(.dark) textarea {
+  color: #1E1B18 !important;
+  background-color: #FFFFFF !important;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  color: #FDFBF7 !important;
+  background-color: #1A1715 !important;
+  border-color: #38302A !important;
+}
+
+select option {
+  background-color: #FDFBF7 !important;
+  color: #1E1B18 !important;
+}
+
+html.dark select option {
+  background-color: #1A1715 !important;
+  color: #FDFBF7 !important;
+}
+
+/* Placeholder Visibility in Both Modes */
+::placeholder {
+  color: #786F64 !important;
+  opacity: 0.9 !important;
+}
+
+html.dark ::placeholder {
+  color: #A89F93 !important;
+  opacity: 0.9 !important;
+}
+
+/* Accordion Summary Chevron Dropdown Arrow Placement ALWAYS at RIGHT END */
+summary i,
+summary svg,
+summary .fa-chevron-down,
+summary .fa-chevron-right,
+summary .fa-chevron-up,
+details summary i,
+details summary svg,
+details summary .fa-chevron-down,
+details summary .fa-chevron-right,
+details summary .fa-chevron-up,
+[dir="rtl"] summary i,
+[dir="rtl"] summary svg,
+[dir="rtl"] summary .fa-chevron-down,
+[dir="rtl"] details summary i,
+[dir="rtl"] details summary svg,
+[dir="rtl"] details summary .fa-chevron-down {
+  order: 999 !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+/* ==========================================================================
+   RTL SPECIFIC ALIGNMENT & CONTRAST OVERRIDES
+   ========================================================================== */
+
+/* 1. HERO SECTION ALIGNMENT FIXES FOR LTR & RTL LAYOUTS */
+.lg\:col-span-7,
+[dir="rtl"] .lg\:col-span-7,
+html[dir="rtl"] .lg\:col-span-7,
+.hero-content-left,
+[dir="rtl"] .hero-content-left {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+.lg\:col-span-7 *,
+[dir="rtl"] .lg\:col-span-7 *,
+html[dir="rtl"] .lg\:col-span-7 *,
+.hero-content-left *,
+[dir="rtl"] .hero-content-left * {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Scope max-w-xl left alignment strictly to hero sections, preserving text-center for page banners */
+.hero-content-left p.max-w-xl,
+.hero-content-left .max-w-xl,
+.lg\:col-span-7 p.max-w-xl,
+.lg\:col-span-7 .max-w-xl {
+  direction: ltr !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* Page Header Banner Specificity (only top header page banners) */
+header + section.bg-transparent,
+header + section[style*="var(--bg-primary)"] {
+  background-color: var(--bg-primary) !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+header + section.bg-transparent *,
+header + section.bg-transparent div,
+header + section.bg-transparent p,
+header + section.bg-transparent span,
+header + section.bg-transparent h1 {
+  background-color: transparent !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.btn-heritage-gold,
+.btn-heritage-outline,
+[dir="rtl"] .btn-heritage-gold,
+[dir="rtl"] .btn-heritage-outline,
+html[dir="rtl"] .btn-heritage-gold,
+html[dir="rtl"] .btn-heritage-outline {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+.lg\:col-span-7 .flex,
+.lg\:col-span-7 div.flex,
+[dir="rtl"] .lg\:col-span-7 .flex,
+[dir="rtl"] .lg\:col-span-7 div.flex,
+html[dir="rtl"] .lg\:col-span-7 .flex,
+html[dir="rtl"] .lg\:col-span-7 div.flex {
+  direction: ltr !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+/* 2. TESTIMONIAL CARDS & AUTHOR PROFILE FRAME ALIGNMENT FIXES */
+.heritage-card,
+[dir="rtl"] .heritage-card,
+html[dir="rtl"] .heritage-card {
+  direction: ltr !important;
+}
+
+.heritage-card:not(.text-center) *,
+[dir="rtl"] .heritage-card:not(.text-center) *,
+html[dir="rtl"] .heritage-card:not(.text-center) * {
+  direction: ltr !important;
+}
+
+/* Explicit Center Alignment Protection for Cards & Text */
+.text-center,
+.heritage-card.text-center,
+.heritage-card.text-center *,
+.heritage-card .text-center,
+.heritage-card .text-center *,
+[dir="rtl"] .heritage-card.text-center,
+[dir="rtl"] .heritage-card.text-center *,
+[dir="rtl"] .heritage-card .text-center,
+[dir="rtl"] .heritage-card .text-center *,
+html[dir="rtl"] .heritage-card.text-center,
+html[dir="rtl"] .heritage-card.text-center *,
+html[dir="rtl"] .heritage-card .text-center,
+html[dir="rtl"] .heritage-card .text-center * {
+  text-align: center !important;
+}
+
+.heritage-card.items-center,
+.heritage-card .items-center,
+[dir="rtl"] .heritage-card.items-center,
+[dir="rtl"] .heritage-card .items-center,
+html[dir="rtl"] .heritage-card.items-center,
+html[dir="rtl"] .heritage-card .items-center {
+  align-items: center !important;
+}
+
+/* Product Catalog Footer Button Alignment */
+.heritage-card .border-t,
+.heritage-card div.border-t {
+  align-items: center !important;
+}
+
+.heritage-card .border-t button,
+.heritage-card .border-t a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+}
+
+.heritage-card .border-t button[title*="Quick View"],
+.heritage-card .border-t button:has(i.fa-eye) {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  padding: 0 !important;
+}
+
+.heritage-card .flex:not(.justify-center):not(.rounded-full):not(.flex-col):not(.items-center),
+.heritage-card div.flex:not(.justify-center):not(.rounded-full):not(.flex-col):not(.items-center),
+[dir="rtl"] .heritage-card .flex:not(.justify-center):not(.rounded-full):not(.flex-col):not(.items-center),
+[dir="rtl"] .heritage-card div.flex:not(.justify-center):not(.rounded-full):not(.flex-col):not(.items-center),
+html[dir="rtl"] .heritage-card .flex:not(.justify-center):not(.rounded-full):not(.flex-col):not(.items-center),
+html[dir="rtl"] .heritage-card div.flex:not(.justify-center):not(.rounded-full):not(.flex-col):not(.items-center) {
+  direction: ltr !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* Explicit Flex Column Protection for Vertical Cards */
+.flex-col,
+.heritage-card.flex-col,
+.heritage-card .flex-col,
+div.heritage-card .flex-col,
+[dir="rtl"] .heritage-card .flex-col,
+html[dir="rtl"] .heritage-card .flex-col {
+  flex-direction: column !important;
+}
+
+/* Uniform Blog & Heritage Card Image Sizing */
+.heritage-card .aspect-\[4\/3\],
+.heritage-card div[class*="aspect-"] {
+  aspect-ratio: 4 / 3 !important;
+  height: 220px !important;
+  max-height: 220px !important;
+  min-height: 220px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.heritage-card .aspect-\[4\/3\] img,
+.heritage-card div[class*="aspect-"] img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Centered Icon Containers & Rounded Avatar Circles */
+.rounded-full.flex,
+.rounded-full.inline-flex,
+.w-12.h-12.flex,
+.w-10.h-10.flex,
+.w-8.h-8.flex,
+div.rounded-full,
+div.justify-center,
+.heritage-card .justify-center,
+.heritage-card .rounded-full,
+.heritage-card div.rounded-full,
+.heritage-card .w-12.h-12,
+[dir="rtl"] .rounded-full,
+[dir="rtl"] .heritage-card .rounded-full,
+[dir="rtl"] .heritage-card div.rounded-full {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.rounded-full > i,
+.rounded-full > svg,
+.w-12.h-12 > i,
+.w-12.h-12 > svg,
+.heritage-card .rounded-full > i,
+.heritage-card .rounded-full > svg,
+.heritage-card .w-12.h-12 > i,
+.heritage-card .w-12.h-12 > svg {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  order: 0 !important;
+}
+
+/* 3. HIGH-CONTRAST TEXT VISIBILITY FIXES FOR DARK SECTIONS IN LIGHT & DARK MODE */
+.bg-stone-900 .text-stone-400,
+.bg-stone-950 .text-stone-400,
+.bg-\[\#0b0f19\] .text-stone-400,
+footer .text-stone-400,
+.heritage-card.bg-stone-900 .text-stone-400,
+.heritage-card.bg-stone-950 .text-stone-400,
+html:not(.dark) .bg-stone-900 .text-stone-400,
+html:not(.dark) .bg-stone-950 .text-stone-400,
+html:not(.dark) .bg-\[\#0b0f19\] .text-stone-400,
+html:not(.dark) footer .text-stone-400,
+html:not(.dark) .heritage-card .text-stone-400,
+html:not(.dark) .bg-stone-900 span,
+html:not(.dark) .bg-stone-950 span {
+  color: #D6D3D1 !important;
+}
+
+.bg-stone-900 .text-stone-300,
+.bg-stone-950 .text-stone-300,
+.bg-\[\#0b0f19\] .text-stone-300,
+footer .text-stone-300,
+html:not(.dark) .bg-stone-900 .text-stone-300,
+html:not(.dark) .bg-stone-950 .text-stone-300,
+html:not(.dark) .bg-\[\#0b0f19\] .text-stone-300,
+html:not(.dark) footer .text-stone-300 {
+  color: #E7E5E4 !important;
+}
+
+.bg-stone-900 .text-stone-500,
+.bg-stone-950 .text-stone-500,
+html:not(.dark) .bg-stone-900 .text-stone-500,
+html:not(.dark) .bg-stone-950 .text-stone-500 {
+  color: #A8A29E !important;
+}
+
+/* Specificity Override for Search Input Magnifier Icon Padding */
+#catalog-search-input,
+#catalog-search-input-mobile,
+input#catalog-search-input,
+input#catalog-search-input-mobile,
+.relative > input[id*="search"],
+.relative > #catalog-search-input,
+.relative > #catalog-search-input-mobile {
+  padding-left: 2.75rem !important;
+  padding-right: 1rem !important;
+}
+
+[dir="rtl"] #catalog-search-input,
+[dir="rtl"] #catalog-search-input-mobile,
+[dir="rtl"] input#catalog-search-input,
+[dir="rtl"] input#catalog-search-input-mobile {
+  padding-right: 2.75rem !important;
+  padding-left: 1rem !important;
+}
+
+/* ==========================================================================
+   FULL WEBSITE RESPONSIVENESS & MOBILE OVERFLOW CONTROLS (320px - 1440px+)
+   ========================================================================== */
+
+/* 1. Global Anti-Overflow & Flexible Media */
+html, body {
+  max-width: 100vw !important;
+  overflow-x: clip !important;
+}
+
+img, video, iframe, object, canvas, svg {
+  max-width: 100% !important;
+  height: auto;
+}
+
+p, h1, h2, h3, h4, h5, h6, span, a, td, th, label {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* 2. Responsive Table Wrappers */
+.table-responsive {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.25rem;
+}
+
+.table-responsive table {
+  width: 100%;
+  min-width: 600px;
+}
+
+@media (max-width: 640px) {
+  .table-responsive table {
+    min-width: 520px;
+  }
+}
+
+/* 3. Modal Popup Viewport Fitting */
+.modal-content {
+  max-width: min(720px, 92vw) !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+}
+
+@media (max-width: 640px) {
+  .modal-overlay {
+    padding: 0.75rem !important;
+  }
+  .modal-content {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    max-height: 88vh !important;
+    padding: 1.25rem !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* 4. Responsive Off-Canvas Mobile Drawers */
+@media (max-width: 480px) {
+  #mobile-menu-drawer > div,
+  #wishlist-drawer > div,
+  #mobile-filter-drawer > div {
+    width: 88vw !important;
+    max-width: 88vw !important;
+  }
+}
+
+/* 5. Responsive Toast Notifications & Alerts */
+@media (max-width: 640px) {
+  #toast-container {
+    right: 1rem !important;
+    left: 1rem !important;
+    bottom: 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    width: calc(100vw - 2rem) !important;
+  }
+  [dir="rtl"] #toast-container {
+    right: 1rem !important;
+    left: 1rem !important;
+  }
+  .toast-item {
+    max-width: 100% !important;
+    width: 100% !important;
+    font-size: 0.8125rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+}
+
+/* 6. Buttons & Inputs Responsive Breakpoint Safety */
+@media (max-width: 480px) {
+  .btn-heritage-primary,
+  .btn-heritage-gold,
+  .btn-heritage-outline {
+    white-space: normal !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+  }
+  
+  .header-sticky nav a {
+    white-space: normal !important;
+  }
+}
+
+/* 7. Grid & Flex Breakpoint Adjustments for Ultra-Narrow (320px - 375px) Devices */
+@media (max-width: 375px) {
+  .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  .p-6 {
+    padding: 1rem !important;
+  }
+  .p-8 {
+    padding: 1.25rem !important;
+  }
+}
+
