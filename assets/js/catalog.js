@@ -256,11 +256,7 @@ function renderProducts() {
       return `
         <div class="heritage-card group rounded-lg overflow-hidden flex flex-col justify-between">
           <div class="relative overflow-hidden aspect-[4/3] bg-stone-100 dark:bg-stone-800">
-<<<<<<< HEAD
             <img src="${item.images[0]}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80';" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-=======
-            <img src="${item.images[0]}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
->>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
             <span class="absolute top-3 left-3 badge-era">${item.era}</span>
             
             <button onclick="toggleWishlist('${item.id}')" data-wishlist-id="${item.id}" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/90 dark:bg-stone-900/90 text-stone-700 dark:text-stone-200 flex items-center justify-center shadow hover:scale-110 transition-transform">
@@ -270,17 +266,12 @@ function renderProducts() {
 
           <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
             <div>
-<<<<<<< HEAD
               <span class="text-xs text-stone-500 dark:text-stone-300 font-medium">${item.style} • Circa ${item.circa}</span>
-=======
-              <span class="text-xs text-stone-500 font-medium">${item.style} • Circa ${item.circa}</span>
->>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
               <h3 class="font-serif font-bold text-base sm:text-lg text-stone-900 dark:text-stone-100 mt-1 line-clamp-2 hover:text-amber-700 dark:hover:text-amber-500 transition-colors">
                 <a href="product-details.html?id=${item.id}">${item.title}</a>
               </h3>
             </div>
 
-<<<<<<< HEAD
             <div class="mt-4 pt-3.5 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between gap-2">
               <div class="flex flex-col justify-center text-left">
                 <span class="text-[10px] text-stone-500 dark:text-stone-400 uppercase tracking-wider font-semibold block leading-none mb-1 text-left">Asking Price</span>
@@ -290,19 +281,6 @@ function renderProducts() {
                 <i class="fa-regular fa-eye text-xs"></i>
               </button>
               <a href="product-details.html?id=${item.id}" class="btn-heritage-primary h-9 px-3.5 text-xs font-semibold uppercase tracking-wider inline-flex items-center justify-center shrink-0">Details</a>
-=======
-            <div class="mt-4 pt-4 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between gap-2">
-              <div>
-                <span class="text-[10px] text-stone-400 uppercase tracking-wider block">Asking Price</span>
-                <span class="font-serif font-bold text-base sm:text-lg text-amber-800 dark:text-amber-500">${item.priceFormatted}</span>
-              </div>
-              <div class="flex gap-1.5 sm:gap-2">
-                <button onclick="openQuickViewModal('${item.id}')" class="text-xs btn-heritage-outline px-2.5 sm:px-3 py-1.5" title="Quick View">
-                  <i class="fa-regular fa-eye"></i>
-                </button>
-                <a href="product-details.html?id=${item.id}" class="text-xs btn-heritage-primary px-2.5 sm:px-3 py-1.5">Details</a>
-              </div>
->>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
             </div>
           </div>
         </div>
@@ -316,32 +294,20 @@ function renderProducts() {
       return `
         <div class="heritage-card group rounded-lg overflow-hidden flex flex-col md:flex-row">
           <div class="relative md:w-64 aspect-[16/9] sm:aspect-[4/3] md:aspect-auto bg-stone-100 dark:bg-stone-800 flex-shrink-0">
-<<<<<<< HEAD
             <img src="${item.images[0]}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80';" alt="${item.title}" class="w-full h-full object-cover">
-=======
-            <img src="${item.images[0]}" alt="${item.title}" class="w-full h-full object-cover">
->>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
             <span class="absolute top-3 left-3 badge-era">${item.era}</span>
           </div>
           <div class="p-4 sm:p-6 flex-1 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between gap-2 sm:gap-4 flex-wrap">
                 <span class="text-xs text-amber-700 dark:text-amber-500 font-semibold tracking-wide uppercase">${item.style} — ${item.circa}</span>
-<<<<<<< HEAD
                 <span class="text-xs text-stone-500 dark:text-stone-400"><i class="fa-solid fa-location-dot mr-1 text-stone-400 dark:text-stone-300"></i> ${item.origin}</span>
-=======
-                <span class="text-xs text-stone-500"><i class="fa-solid fa-location-dot mr-1 text-stone-400"></i> ${item.origin}</span>
->>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
               </div>
               <h3 class="font-serif font-bold text-lg sm:text-xl text-stone-900 dark:text-stone-100 mt-1">
                 <a href="product-details.html?id=${item.id}" class="hover:text-amber-700 transition-colors">${item.title}</a>
               </h3>
               <p class="text-sm text-stone-600 dark:text-stone-400 mt-2 line-clamp-2">${item.shortDesc}</p>
-<<<<<<< HEAD
               <div class="mt-3 flex flex-wrap gap-2 sm:gap-4 text-xs text-stone-500 dark:text-stone-300">
-=======
-              <div class="mt-3 flex flex-wrap gap-2 sm:gap-4 text-xs text-stone-500">
->>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
                 <span><strong>Materials:</strong> ${item.material}</span>
                 <span class="hidden sm:inline">•</span>
                 <span><strong>Dimensions:</strong> ${item.dimensions}</span>

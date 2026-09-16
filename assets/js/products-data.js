@@ -241,13 +241,8 @@ const PRODUCTS_DATA = [
     featured: false,
     rating: 5,
     images: [
-<<<<<<< HEAD
       "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1000&q=80"
-=======
-      "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1000&q=80"
->>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
     ],
     shortDesc: "Napoleon III period gilded bronze clock inset with celeste blue porcelain panels depicting romantic cherubs and floral swags.",
     fullDesc: "An exquisite mantle piece featuring an 8-day brass movement striking on a bell every half hour. The porcelain dial is signed by Parisian horologist Raingo Frères."
@@ -273,11 +268,7 @@ const PRODUCTS_DATA = [
     featured: false,
     rating: 5,
     images: [
-<<<<<<< HEAD
       "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80",
-=======
-      "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80",
->>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
       "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80"
     ],
     shortDesc: "Ingenious George III metamorphic library chair that unfolds seamlessly into a 4-step library ladder with gilt-embossed green leather treads.",
@@ -331,13 +322,8 @@ const PRODUCTS_DATA = [
     featured: false,
     rating: 5,
     images: [
-<<<<<<< HEAD
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=80"
-=======
-      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80"
->>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
     ],
     shortDesc: "Elegantly proportioned pair of mid-Victorian rosewood parlor chairs with delicate cabriole legs and hand-carved crest rails.",
     fullDesc: "These matching chairs display the refined fluid curves of mid-19th century British gentleman salon furniture, restored with hand-padded horsehair seating."
