@@ -330,16 +330,6 @@ section.relative .btn-heritage-outline *,
   white-space: nowrap !important;
 }
 
-.header-sticky nav {
-  font-size: 0.8125rem;
-}
-
-@media (min-width: 1280px) {
-  .header-sticky nav {
-    font-size: 0.875rem;
-  }
-}
-
 .header-sticky .brand-logo-container {
   white-space: nowrap !important;
   flex-shrink: 0;
@@ -1465,4 +1455,12 @@ p, h1, h2, h3, h4, h5, h6, span, a, td, th, label {
     padding: 1.25rem !important;
   }
 }
+
+/* 8. Dedicated Mobile Navigation Bar Offset */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: 60px !important;
+  }
+}
+
 
