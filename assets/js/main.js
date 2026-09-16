@@ -87,11 +87,14 @@ function updateRTLIconState(isRTL) {
   rtlBtns.forEach(btn => {
     btn.setAttribute('title', isRTL ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
     btn.setAttribute('aria-label', isRTL ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
+<<<<<<< HEAD
     if (isRTL) {
       btn.classList.add('text-amber-700', 'dark:text-amber-400', 'bg-amber-700/20', 'dark:bg-amber-500/20');
     } else {
       btn.classList.remove('text-amber-700', 'dark:text-amber-400', 'bg-amber-700/20', 'dark:bg-amber-500/20');
     }
+=======
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
   });
 }
 

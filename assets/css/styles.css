@@ -161,6 +161,7 @@ html.dark .btn-heritage-primary {
   box-shadow: 0 4px 14px rgba(197, 160, 89, 0.3);
 }
 
+<<<<<<< HEAD
 /* Protect FontAwesome Icons from font-family / font-weight overrides */
 i[class*="fa-"],
 i.fa-solid,
@@ -202,18 +203,32 @@ button.btn-heritage-gold {
   color: #12100E !important;
   font-family: var(--font-sans);
   font-weight: 700 !important;
+=======
+.btn-heritage-gold {
+  background-color: var(--accent-gold);
+  color: #12100E;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-gold);
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 0.5rem;
+<<<<<<< HEAD
   padding: 0.75rem 1.75rem;
   border-radius: 4px;
   box-sizing: border-box !important;
+=======
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
   transition: all 0.25s ease;
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .btn-heritage-gold *,
 .btn-heritage-gold span {
   background-color: transparent !important;
@@ -246,6 +261,16 @@ button.btn-heritage-gold:hover {
 .btn-heritage-outline,
 a.btn-heritage-outline,
 button.btn-heritage-outline {
+=======
+.btn-heritage-gold:hover {
+  background-color: var(--accent-gold-hover);
+  border-color: var(--accent-gold-hover);
+  color: #12100E;
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35);
+}
+
+.btn-heritage-outline {
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
   background-color: transparent;
   color: var(--text-primary);
   font-family: var(--font-sans);
@@ -253,7 +278,10 @@ button.btn-heritage-outline {
   padding: 0.75rem 1.75rem;
   border-radius: 4px;
   border: 1px solid var(--border-color);
+<<<<<<< HEAD
   box-sizing: border-box !important;
+=======
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -263,16 +291,20 @@ button.btn-heritage-outline {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .btn-heritage-outline * {
   background-color: transparent;
 }
 
+=======
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
 .btn-heritage-outline:hover {
   border-color: var(--accent-gold);
   color: var(--accent-gold);
   background-color: var(--accent-gold-light);
 }
 
+<<<<<<< HEAD
 /* DARK CONTAINERS & HERO SECTION BUTTON CONTRAST OVERRIDES */
 .bg-stone-900 .btn-heritage-outline,
 .bg-stone-950 .btn-heritage-outline,
@@ -313,6 +345,8 @@ section.relative .btn-heritage-outline *,
   color: #F59E0B !important;
 }
 
+=======
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
 /* Header & Sticky Nav */
 .header-sticky {
   position: sticky;
@@ -326,6 +360,7 @@ section.relative .btn-heritage-outline *,
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+<<<<<<< HEAD
 .header-sticky nav a {
   white-space: nowrap !important;
 }
@@ -335,6 +370,8 @@ section.relative .btn-heritage-outline *,
   flex-shrink: 0;
 }
 
+=======
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
 html.dark .header-sticky {
   background-color: rgba(18, 16, 14, 0.96);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -570,6 +607,7 @@ html.dark .badge-provenance {
 /* Form Styling */
 .form-input, .form-select, .form-textarea {
   width: 100%;
+<<<<<<< HEAD
   height: 44px !important;
   min-height: 44px;
   background-color: var(--bg-primary);
@@ -618,12 +656,25 @@ input.pl-10,
   min-height: 100px !important;
 }
 
+=======
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   outline: none;
   border-color: var(--accent-gold);
   box-shadow: 0 0 0 3px var(--accent-gold-light);
 }
 
+<<<<<<< HEAD
 /* Explicit Button Centering Override */
 .justify-center > .btn-heritage-gold,
 .text-center > .btn-heritage-gold,
@@ -636,6 +687,8 @@ div.justify-center .btn-heritage-gold,
   text-align: center !important;
 }
 
+=======
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
 /* Scroll To Top Button & Smooth Scrolling */
 html {
   scroll-behavior: smooth;
@@ -645,6 +698,7 @@ html {
   z-index: 99;
 }
 
+<<<<<<< HEAD
 /* Global Left Alignment in both LTR & RTL Layouts */
 body,
 main,
@@ -1464,3 +1518,13 @@ p, h1, h2, h3, h4, h5, h6, span, a, td, th, label {
 }
 
 
+=======
+/* RTL Helpers */
+[dir="rtl"] {
+  text-align: right;
+}
+[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+>>>>>>> 34af56a3ab0cb1ecbf76c786ea5266e2662be226
