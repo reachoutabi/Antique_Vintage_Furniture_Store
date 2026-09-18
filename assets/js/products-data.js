@@ -133,8 +133,8 @@ const PRODUCTS_DATA = [
     featured: true,
     rating: 5,
     images: [
-      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80"
     ],
     shortDesc: "Iconic 4-door credenza with book-matched Brazilian rosewood grain, white marble top, and chrome steel sled base.",
     fullDesc: "Designed by Florence Knoll in 1961, this model 75 credenza represents the height of corporate architectural modernist furniture. Features four soft-touch doors revealing maple interior drawers and adjustable shelving."
@@ -241,8 +241,8 @@ const PRODUCTS_DATA = [
     featured: false,
     rating: 5,
     images: [
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=80"
     ],
     shortDesc: "Napoleon III period gilded bronze clock inset with celeste blue porcelain panels depicting romantic cherubs and floral swags.",
     fullDesc: "An exquisite mantle piece featuring an 8-day brass movement striking on a bell every half hour. The porcelain dial is signed by Parisian horologist Raingo Frères."
@@ -268,8 +268,8 @@ const PRODUCTS_DATA = [
     featured: false,
     rating: 5,
     images: [
-      "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1000&q=80"
     ],
     shortDesc: "Ingenious George III metamorphic library chair that unfolds seamlessly into a 4-step library ladder with gilt-embossed green leather treads.",
     fullDesc: "Attributed to Thomas Sheraton's designs, this dual-purpose furniture piece reflects the 18th-century obsession with mechanical ingenuity."
@@ -295,8 +295,8 @@ const PRODUCTS_DATA = [
     featured: true,
     rating: 5,
     images: [
-      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1000&q=80"
     ],
     shortDesc: "Rare Swedish Grace Art Deco bar cabinet in blonde burl birch, opening to a mirror-lined interior with lemonwood glassware fittings.",
     fullDesc: "Designed during Axel Einar Hjorth's celebrated tenure at Nordiska Kompaniet, this cabinet showcases Scandinavian functional elegance combined with luxury materials."
@@ -322,8 +322,8 @@ const PRODUCTS_DATA = [
     featured: false,
     rating: 5,
     images: [
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1580481072645-022f9a6d83d0?auto=format&fit=crop&w=1000&q=80"
     ],
     shortDesc: "Elegantly proportioned pair of mid-Victorian rosewood parlor chairs with delicate cabriole legs and hand-carved crest rails.",
     fullDesc: "These matching chairs display the refined fluid curves of mid-19th century British gentleman salon furniture, restored with hand-padded horsehair seating."

@@ -25,6 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Real-time phone input filtering to accept ONLY numbers (digits)
+  const phoneInput = document.getElementById('appt-phone-input');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/\D/g, '');
+    });
+  }
+
   // Set min date to today
   const dateInput = document.getElementById('appt-date-input');
   if (dateInput) {
@@ -46,6 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!name || !email || !phone || !date || !time) {
       showToast('Please complete all required appointment fields.', 'warning');
+      return;
+    }
+
+    // Phone validation: must contain only numbers (digits)
+    if (!/^\d{7,15}$/.test(phone)) {
+      showToast('Please enter a valid contact telephone number (numbers only, e.g. 447700900123).', 'warning');
+      if (phoneInput) phoneInput.focus();
       return;
     }
 
