@@ -622,6 +622,58 @@ html.dark .badge-provenance {
   transform: translateX(0);
 }
 
+/* Mobile Menu Submenu Gap Reduction Fix */
+#mobile-menu-drawer div.rounded-lg a,
+#mobile-menu-drawer div.rounded-lg a.flex,
+[dir="rtl"] #mobile-menu-drawer div.rounded-lg a,
+[dir="rtl"] #mobile-menu-drawer div.rounded-lg a.flex {
+  justify-content: flex-start !important;
+  gap: 0.4rem !important;
+}
+
+#mobile-menu-drawer div.rounded-lg a i,
+#mobile-menu-drawer div.rounded-lg a svg,
+[dir="rtl"] #mobile-menu-drawer div.rounded-lg a i,
+[dir="rtl"] #mobile-menu-drawer div.rounded-lg a svg {
+  margin-right: 0.25rem !important;
+  margin-left: 0 !important;
+  order: -1 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Mobile & Tablet Refine & Filter Button Alignment Fix */
+#mobile-filter-open-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  position: relative !important;
+  gap: 0.5rem !important;
+  padding-right: 3rem !important;
+}
+
+#mobile-filter-count-badge {
+  position: absolute !important;
+  right: 1rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background-color: #b45309 !important; /* amber-700 */
+  color: #ffffff !important;
+  border-radius: 9999px !important;
+  width: 1.35rem !important;
+  height: 1.35rem !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+}
+
+#mobile-filter-count-badge.hidden {
+  display: none !important;
+}
+
 #wishlist-drawer > div,
 #mobile-filter-drawer > div {
   transform: translateX(100%);
@@ -793,6 +845,49 @@ label,
   margin-right: auto !important;
 }
 
+/* Footer RTL Layout & Column Ordering */
+[dir="rtl"] footer .footer-grid {
+  direction: ltr;
+}
+
+[dir="rtl"] footer .footer-col-newsletter {
+  order: 1;
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] footer .footer-col-visitus {
+  order: 2;
+  direction: rtl;
+  text-align: right;
+  padding-left: 0;
+}
+
+[dir="rtl"] footer .footer-col-quicklinks {
+  order: 3;
+  direction: rtl;
+  text-align: right;
+  padding-left: 0 !important;
+}
+
+[dir="rtl"] footer .footer-col-brand {
+  order: 4;
+  direction: rtl;
+  text-align: right;
+}
+
+@media (min-width: 640px) {
+  [dir="rtl"] footer .footer-col-visitus {
+    padding-left: 1rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  [dir="rtl"] footer .footer-col-visitus {
+    padding-left: 2rem !important;
+  }
+}
+
 .text-center .btn-heritage-primary,
 .text-center .btn-heritage-gold,
 .text-center .btn-heritage-outline,
@@ -906,7 +1001,7 @@ select,
   gap: 0.5rem;
 }
 
-/* Footer Alignment - Always Left Aligned in both LTR & RTL Layouts */
+/* Footer Alignment & Equal Column Spacing */
 footer,
 footer *,
 [dir="rtl"] footer,
@@ -915,8 +1010,55 @@ footer *,
   text-align: left !important;
 }
 
+/* Equal Spacing & Width Distribution for 4 Footer Columns */
+footer .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4,
+footer .grid.lg\:grid-cols-4,
+[dir="rtl"] footer .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4,
+[dir="rtl"] footer .grid.lg\:grid-cols-4 {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 2.5rem !important;
+  row-gap: 2.5rem !important;
+  column-gap: 2.5rem !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+  align-items: start !important;
+}
+
+footer .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 > div,
+footer .grid.lg\:grid-cols-4 > div,
+footer div.space-y-4,
+[dir="rtl"] footer div.space-y-4 {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+@media (max-width: 1023px) and (min-width: 640px) {
+  footer .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4,
+  footer .grid.lg\:grid-cols-4,
+  [dir="rtl"] footer .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4,
+  [dir="rtl"] footer .grid.lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
+    row-gap: 2.5rem !important;
+    column-gap: 2rem !important;
+  }
+}
+
+@media (max-width: 639px) {
+  footer .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4,
+  footer .grid.lg\:grid-cols-4,
+  [dir="rtl"] footer .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4,
+  [dir="rtl"] footer .grid.lg\:grid-cols-4 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
+    row-gap: 2rem !important;
+  }
+}
+
 [dir="rtl"] footer .flex,
-[dir="rtl"] footer div,
+[dir="rtl"] footer div:not(.grid),
 [dir="rtl"] footer a,
 [dir="rtl"] footer li {
   flex-direction: row !important;
@@ -1557,10 +1699,48 @@ table {
     white-space: normal !important;
   }
 
-  .form-input, .form-select, .form-textarea, input, select, textarea {
+  .form-input, .form-select, .form-textarea, input:not([type="checkbox"]):not([type="radio"]), select, textarea {
     max-width: 100% !important;
     width: 100% !important;
   }
+}
+
+/* 6b. Checkbox & Radio Button Alignment & Size Protection */
+input[type="checkbox"],
+input[type="radio"],
+.era-filter-checkbox,
+.style-filter-checkbox,
+[dir="rtl"] input[type="checkbox"],
+[dir="rtl"] input[type="radio"] {
+  width: 1rem !important;
+  min-width: 1rem !important;
+  max-width: 1rem !important;
+  height: 1rem !important;
+  min-height: 1rem !important;
+  max-height: 1rem !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+#mobile-filter-drawer label,
+aside label {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  width: 100% !important;
+  gap: 0.5rem !important;
+}
+
+#mobile-filter-drawer label span,
+aside label span {
+  text-align: left !important;
+  white-space: normal !important;
+  word-break: normal !important;
 }
 
 /* 7. Ultra-Narrow Screen Scaling (320px - 360px) */

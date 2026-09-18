@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlobalModals();
   initStatCounters();
   initScrollToTop();
+  initFAQAccordion();
+  initBlogSearchAndFilters();
 });
 
 /* -------------------------------------------------------------------------- */
@@ -482,6 +484,122 @@ function initScrollToTop() {
       behavior: 'smooth'
     });
   });
+}
+
+/* -------------------------------------------------------------------------- */
+/* 9. FAQ Accordion Engine (Only One Question Open At A Time)                */
+/* -------------------------------------------------------------------------- */
+function initFAQAccordion() {
+  const faqDetails = document.querySelectorAll('section details');
+  faqDetails.forEach(targetDetail => {
+    targetDetail.addEventListener('toggle', () => {
+      if (targetDetail.open) {
+        faqDetails.forEach(detail => {
+          if (detail !== targetDetail && detail.open) {
+            detail.open = false;
+          }
+        });
+      }
+    });
+  });
+}
+
+/* -------------------------------------------------------------------------- */
+/* 10. Blog Search & Topic Filter Engine                                      */
+/* -------------------------------------------------------------------------- */
+function initBlogSearchAndFilters() {
+  const searchInput = document.getElementById('blog-search-input');
+  const searchInputMobile = document.getElementById('blog-search-input-mobile');
+  const topicBtns = document.querySelectorAll('.blog-topic-btn');
+  const resetBtn = document.getElementById('blog-reset-filters-btn');
+  const resetEmptyBtn = document.getElementById('blog-reset-btn-empty');
+  const cards = document.querySelectorAll('#blog-grid > div');
+  const noResults = document.getElementById('blog-no-results');
+
+  if (!cards.length) return;
+
+  let activeTopic = 'all';
+
+  function getQuery() {
+    return (searchInput?.value || searchInputMobile?.value || '').toLowerCase().trim();
+  }
+
+  function filterBlog() {
+    const query = getQuery();
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
+      const desc = (card.querySelector('p')?.textContent || '').toLowerCase();
+      const topic = (card.querySelector('.badge-era')?.textContent || '').trim();
+
+      const matchesQuery = !query || title.includes(query) || desc.includes(query) || topic.toLowerCase().includes(query);
+      const matchesTopic = activeTopic === 'all' || topic === activeTopic;
+
+      if (matchesQuery && matchesTopic) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (noResults) {
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+  }
+
+  function syncSearchInput(val) {
+    if (searchInput) searchInput.value = val;
+    if (searchInputMobile) searchInputMobile.value = val;
+    filterBlog();
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => syncSearchInput(e.target.value));
+  }
+  if (searchInputMobile) {
+    searchInputMobile.addEventListener('input', (e) => syncSearchInput(e.target.value));
+  }
+
+  topicBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTopic = btn.getAttribute('data-topic');
+      topicBtns.forEach(b => {
+        if (b.getAttribute('data-topic') === activeTopic) {
+          b.classList.remove('bg-stone-200', 'dark:bg-stone-800', 'text-stone-700', 'dark:text-stone-300');
+          b.classList.add('bg-amber-700', 'text-white', 'active');
+        } else {
+          b.classList.remove('bg-amber-700', 'text-white', 'active');
+          b.classList.add('bg-stone-200', 'dark:bg-stone-800', 'text-stone-700', 'dark:text-stone-300');
+        }
+      });
+      filterBlog();
+    });
+  });
+
+  function resetAll() {
+    if (searchInput) searchInput.value = '';
+    if (searchInputMobile) searchInputMobile.value = '';
+    activeTopic = 'all';
+    topicBtns.forEach(b => {
+      if (b.getAttribute('data-topic') === 'all') {
+        b.classList.add('bg-amber-700', 'text-white', 'active');
+        b.classList.remove('bg-stone-200', 'dark:bg-stone-800', 'text-stone-700', 'dark:text-stone-300');
+      } else {
+        b.classList.remove('bg-amber-700', 'text-white', 'active');
+        b.classList.add('bg-stone-200', 'dark:bg-stone-800', 'text-stone-700', 'dark:text-stone-300');
+      }
+    });
+    filterBlog();
+  }
+
+  if (resetBtn) resetBtn.addEventListener('click', resetAll);
+  if (resetEmptyBtn) resetEmptyBtn.addEventListener('click', resetAll);
 }
 
 
