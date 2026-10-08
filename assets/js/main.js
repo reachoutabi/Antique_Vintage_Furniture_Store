@@ -412,7 +412,7 @@ function openPolicyModal(type) {
         </div>
       </div>
       <div class="text-xs text-stone-600 dark:text-stone-400 space-y-3 leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
-        <p><strong>1. Collector Discretion:</strong> At Aethelgard & Co., we understand that high-value antique acquisitions require the utmost confidentiality. All consultations, private showroom viewings, and purchases remain strictly private unless public provenance attribution is explicitly granted by the buyer.</p>
+        <p><strong>1. Collector Discretion:</strong> At Aethelgard & Finch, we understand that high-value antique acquisitions require the utmost confidentiality. All consultations, private showroom viewings, and purchases remain strictly private unless public provenance attribution is explicitly granted by the buyer.</p>
         <p><strong>2. Information Collection:</strong> We only collect contact details strictly required for arranging viewings, curating custom piece requests, logistics crating, and issuing Guild-certified Certificates of Authenticity.</p>
         <p><strong>3. Data Security:</strong> Client records and acquisition archives are secured with bank-grade encryption and are never sold, rented, or disclosed to third-party commercial entities.</p>
         <p><strong>4. Viewing Appointment Data:</strong> Private appointment requests and security access codes generated for our Mayfair showroom are securely cleared following your scheduled gallery consultation.</p>
@@ -434,7 +434,7 @@ function openPolicyModal(type) {
         </div>
       </div>
       <div class="text-xs text-stone-600 dark:text-stone-400 space-y-3 leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
-        <p><strong>1. Lifetime Authenticity Guarantee:</strong> Every piece cataloged by Aethelgard & Co. is backed by an unconditional lifetime guarantee of authenticity for its designated historical period, maker, and provenance as stated in its accompanying sealed certificate.</p>
+        <p><strong>1. Lifetime Authenticity Guarantee:</strong> Every piece cataloged by Aethelgard & Finch is backed by an unconditional lifetime guarantee of authenticity for its designated historical period, maker, and provenance as stated in its accompanying sealed certificate.</p>
         <p><strong>2. Conservation Integrity:</strong> Any restoration or structural stabilization performed in our workshop utilizes period-accurate techniques (reversible hide glue, French polishing, hand-woven horsehair) that preserve cultural value without compromising original patina.</p>
         <p><strong>3. CITES & Heritage Compliance:</strong> All vintage rosewood, mahogany, and historic materials are legally verified and accompanied by required EU/UK/CITES antique documentation for lawful international transit.</p>
         <p><strong>4. White-Glove Logistics & Transit Insurance:</strong> All pieces are custom museum-crated and fully insured from our gallery doors until placement in your residence.</p>
@@ -458,7 +458,7 @@ function initScrollToTop() {
     scrollBtn = document.createElement('button');
     scrollBtn.id = 'scroll-to-top-btn';
     scrollBtn.type = 'button';
-    scrollBtn.className = 'fixed bottom-6 right-6 rtl:right-auto rtl:left-6 w-11 h-11 rounded-full bg-gradient-to-tr from-amber-700 to-amber-600 dark:from-amber-600 dark:to-amber-500 text-white shadow-xl shadow-amber-900/30 flex items-center justify-center z-40 transition-all duration-300 transform opacity-0 pointer-events-none translate-y-4 hover:scale-110 active:scale-95 border border-amber-400/30 cursor-pointer';
+    scrollBtn.className = 'fixed bottom-6 right-6 rtl:right-auto rtl:left-6 w-11 h-11 rounded-full bg-amber-700 dark:bg-amber-600 text-white shadow-xl flex items-center justify-center z-40 transition-all duration-300 transform opacity-0 pointer-events-none translate-y-4 hover:scale-110 active:scale-95 border border-amber-400/30 cursor-pointer';
     scrollBtn.setAttribute('aria-label', 'Scroll to top');
     scrollBtn.setAttribute('title', 'Scroll to top');
     scrollBtn.innerHTML = '<i class="fa-solid fa-arrow-up text-sm sm:text-base text-white"></i>';

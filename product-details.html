@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antique Piece Story & Provenance | Curated Antique & Vintage | Aethelgard & Co.</title>
+  <title>Antique Piece Story & Provenance | Curated Antique & Vintage | Aethelgard & Finch</title>
   <meta name="description" content="View historical documentation, dimensions, provenance certificate summary, and restoration report for this authenticated antique piece.">
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -54,8 +54,8 @@
           <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-base sm:text-lg"></i>
         </div>
         <div class="min-w-0 text-left">
-          <span class="font-serif text-base sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100 block leading-none whitespace-nowrap">AETHELGARD & CO.</span>
-          <span class="text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.25em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5 sm:mt-1 whitespace-nowrap">Heritage Antiques & Gallery</span>
+          <span class="font-serif text-base sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100 block leading-none whitespace-nowrap">AETHELGARD & FINCH</span>
+          <span class="text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.25em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5 sm:mt-1 whitespace-nowrap">ANTIQUE & VINTAGE ATELIER</span>
         </div>
       </a>
 
@@ -82,7 +82,7 @@
           </div>
         </div>
 
-        <a href="products.html" class="text-amber-700 dark:text-amber-500 font-semibold whitespace-nowrap">Collection</a>
+        <a href="products.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors whitespace-nowrap">Collections</a>
         <a href="restoration.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors whitespace-nowrap">Restoration</a>
         <a href="provenance.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors whitespace-nowrap">Provenance</a>
         <a href="about.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors whitespace-nowrap">About Us</a>
@@ -100,7 +100,7 @@
         </button>
 
         <!-- Book CTA Button -->
-        <a href="contact.html#appointment" class="hidden lg:inline-flex btn-heritage-gold text-xs uppercase tracking-wider font-semibold py-2.5 px-4">
+        <a href="contact.html#appointment" class="hidden lg:inline-flex btn-heritage-gold text-xs uppercase tracking-wider font-bold py-2.5 px-4 shadow-md">
           <i class="fa-regular fa-calendar-check mr-1.5"></i> Book
         </a>
 
@@ -169,12 +169,17 @@
 
         <!-- Action CTAs -->
         <div class="space-y-3 pt-4">
-          <a id="detail-book-btn" href="#" class="w-full btn-heritage-gold py-3.5 text-center text-xs uppercase tracking-wider font-bold block">
-            <i class="fa-regular fa-calendar-check mr-2"></i> Book Private Viewing Appointment
-          </a>
+          <div class="flex gap-3">
+            <button id="detail-add-cart-btn" onclick="addToCartCurrentProduct()" class="flex-1 btn-heritage-gold py-3.5 text-center text-xs uppercase tracking-wider font-bold shadow-lg">
+              <i class="fa-solid fa-bag-shopping mr-2"></i> Add To Cart
+            </button>
+            <a id="detail-book-btn" href="#" class="flex-1 btn-heritage-primary py-3.5 text-center text-xs uppercase tracking-wider font-bold inline-flex items-center justify-center">
+              <i class="fa-regular fa-calendar-check mr-2"></i> Book Viewing
+            </a>
+          </div>
 
           <div class="flex gap-3">
-            <button id="detail-inquire-btn" class="flex-1 btn-heritage-primary py-3 text-xs uppercase tracking-wider font-bold">
+            <button id="detail-inquire-btn" class="flex-1 btn-heritage-outline py-3 text-xs uppercase tracking-wider font-bold">
               <i class="fa-regular fa-envelope mr-1.5"></i> Inquire Curator
             </button>
             <button id="detail-wishlist-btn" class="btn-heritage-outline px-4 py-3 text-xs font-bold" title="Save to Favorites">
@@ -201,6 +206,7 @@
         <button class="detail-tab-btn pb-3 font-serif font-bold text-base sm:text-lg border-b-2 border-amber-700 text-amber-800 dark:text-amber-500 cursor-pointer" data-tab="history">Historical Story</button>
         <button class="detail-tab-btn pb-3 font-serif font-bold text-base sm:text-lg border-b-2 border-transparent text-stone-500 hover:text-stone-800 dark:hover:text-stone-300 cursor-pointer" data-tab="provenance">Provenance & Certification</button>
         <button class="detail-tab-btn pb-3 font-serif font-bold text-base sm:text-lg border-b-2 border-transparent text-stone-500 hover:text-stone-800 dark:hover:text-stone-300 cursor-pointer" data-tab="restoration">Restoration History</button>
+        <button class="detail-tab-btn pb-3 font-serif font-bold text-base sm:text-lg border-b-2 border-transparent text-stone-500 hover:text-stone-800 dark:hover:text-stone-300 cursor-pointer" data-tab="care">Care Instructions</button>
       </div>
 
       <!-- Tab Content 1: Historical Story -->
@@ -225,6 +231,14 @@
         <h3 class="font-serif font-bold text-xl text-stone-900 dark:text-stone-100">Restoration & Conservation Notes</h3>
         <p class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
           Conserved in our Mayfair workshop using 100% reversible traditional materials. High-points hand-polished with organic beeswax and spirit gum. Original lock mechanisms serviced and fully operational.
+        </p>
+      </div>
+
+      <!-- Tab Content 4: Care Instructions -->
+      <div id="tab-care" class="detail-tab-pane hidden space-y-4">
+        <h3 class="font-serif font-bold text-xl text-stone-900 dark:text-stone-100">Antique Care & Maintenance Guidelines</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+          Maintain ambient humidity between 45%–55%. Keep away from direct radiators or intense sunlight. Apply natural unbleached beeswax twice annually with a lint-free cotton cloth. Avoid silicone aerosol sprays.
         </p>
       </div>
 
@@ -258,10 +272,13 @@
         <!-- Column 1: Brand & Social -->
         <div class="footer-col-brand space-y-4 text-left">
           <a href="index.html" class="brand-logo-container inline-flex items-center gap-3 group text-left" dir="ltr">
-            <div class="w-9 h-9 rounded-lg bg-amber-700/20 border border-amber-600/40 flex items-center justify-center shrink-0 group-hover:border-amber-500 transition-colors">
+            <div class="w-9 h-9 rounded-full bg-amber-700/20 border border-amber-600/40 flex items-center justify-center shrink-0 group-hover:border-amber-500 transition-colors">
               <i class="fa-solid fa-crown text-amber-500 text-base"></i>
             </div>
-            <span class="font-serif text-lg font-bold tracking-tight text-white block leading-snug group-hover:text-amber-400 transition-colors">AETHELGARD & CO.</span>
+            <div class="min-w-0 text-left">
+              <span class="font-serif text-lg font-bold tracking-tight text-white block leading-snug group-hover:text-amber-400 transition-colors">AETHELGARD & FINCH</span>
+              <span class="text-[9px] tracking-[0.2em] text-amber-500 uppercase font-semibold block mt-0.5 whitespace-nowrap">ANTIQUE & VINTAGE ATELIER</span>
+            </div>
           </a>
           
           <p class="text-xs text-stone-400 leading-relaxed text-left">
@@ -341,11 +358,17 @@
 
       <!-- Bottom Sub-Footer Bar -->
       <div class="pt-5 pb-3 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500 text-center sm:text-left">
-        <p>© 2026 Aethelgard & Co. All rights reserved.</p>
+        <p>© 2026 Aethelgard & Finch. All rights reserved.</p>
       </div>
 
     </div>
-  </footer>
+  <!-- Floating Right-Side Sticky Wishlist Button -->
+  <div class="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40">
+    <button class="wishlist-drawer-trigger relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-600 dark:bg-amber-500 text-stone-950 shadow-2xl flex items-center justify-center hover:scale-110 hover:bg-amber-500 dark:hover:bg-amber-400 transition-all cursor-pointer border-2 border-amber-300 dark:border-amber-400 group" title="View Saved Wishlist" aria-label="View Saved Wishlist">
+      <i class="fa-solid fa-heart text-lg sm:text-xl text-stone-950 group-hover:scale-110 transition-transform"></i>
+      <span class="wishlist-count-badge absolute -top-1 -right-1 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-red-600 text-white text-[10px] sm:text-xs font-bold flex items-center justify-center border-2 border-white dark:border-stone-950 hidden shadow-md">0</span>
+    </button>
+  </div>
 
   <!-- Wishlist Slide-Over Drawer (💾 Saved Collection) -->
   <div id="wishlist-drawer" class="modal-overlay">
@@ -380,8 +403,8 @@
             <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-sm"></i>
           </div>
           <div class="text-left">
-            <span class="font-serif font-bold text-base block leading-none text-stone-900 dark:text-stone-100">AETHELGARD & CO.</span>
-            <span class="text-[9px] tracking-[0.2em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5">Heritage Gallery</span>
+            <span class="font-serif font-bold text-base block leading-none text-stone-900 dark:text-stone-100">AETHELGARD & FINCH</span>
+            <span class="text-[9px] tracking-[0.2em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5">ANTIQUE & VINTAGE ATELIER</span>
           </div>
         </div>
         <button id="close-mobile-menu" class="w-10 h-10 rounded-full flex items-center justify-center text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-lg" aria-label="Close Menu">

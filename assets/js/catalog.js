@@ -5,16 +5,76 @@
 
 let currentProducts = [...PRODUCTS_DATA];
 let currentView = 'grid'; // 'grid' or 'list'
+let selectedCollection = 'all'; // 'all', 'antique', 'vintage'
+let currentPage = 1;
+const ITEMS_PER_PAGE = 9;
 
 document.addEventListener('DOMContentLoaded', () => {
   if (!document.getElementById('products-grid-container')) return;
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryParam = urlParams.get('category') || '';
+  const typeParam = urlParams.get('type') || '';
+  const collectionParam = urlParams.get('collection') || '';
+
+  const combinedQuery = (categoryParam + ' ' + typeParam + ' ' + collectionParam).toLowerCase();
+
+  if (combinedQuery.includes('royal')) {
+    selectedCollection = 'royal';
+  } else if (combinedQuery.includes('antique')) {
+    selectedCollection = 'antique';
+  } else if (combinedQuery.includes('vintage')) {
+    selectedCollection = 'vintage';
+  } else if (categoryParam) {
+    const searchInput = document.getElementById('catalog-search-input');
+    const searchMob = document.getElementById('catalog-search-input-mobile');
+    if (searchInput) searchInput.value = categoryParam;
+    if (searchMob) searchMob.value = categoryParam;
+  }
+
+  initCollectionTypeSelector();
   initFilters();
   initMobileFilterDrawer();
   initSortAndSearch();
   initViewToggle();
-  renderProducts();
+  
+  selectCollectionType(selectedCollection, false);
+  applyFilters();
 });
+
+function initCollectionTypeSelector() {
+  const collectionRadios = document.querySelectorAll('.collection-type-radio');
+  collectionRadios.forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      selectCollectionType(e.target.value);
+    });
+  });
+}
+
+function selectCollectionType(type, shouldFilter = true) {
+  selectedCollection = type;
+
+  // Sync radio buttons
+  document.querySelectorAll('.collection-type-radio').forEach(r => {
+    r.checked = (r.value === type);
+  });
+
+  // Update Card UI
+  const cards = document.querySelectorAll('.collection-type-card');
+  cards.forEach(card => {
+    const cardTab = card.getAttribute('data-collection-tab');
+    if (cardTab === type) {
+      card.className = 'collection-type-card p-4 rounded-xl border-2 border-amber-600 bg-amber-500/10 dark:bg-amber-950/40 text-left transition-all duration-300 cursor-pointer shadow-md relative overflow-hidden group';
+    } else {
+      card.className = 'collection-type-card p-4 rounded-xl border-2 border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 text-left transition-all duration-300 cursor-pointer hover:border-amber-600/60 shadow-sm relative overflow-hidden group';
+    }
+  });
+
+  if (shouldFilter) {
+    applyFilters();
+  }
+}
+window.selectCollectionType = selectCollectionType;
 
 function initMobileFilterDrawer() {
   const openBtn = document.getElementById('mobile-filter-open-btn');
@@ -42,6 +102,7 @@ function initMobileFilterDrawer() {
     resetMobileBtn.addEventListener('click', () => {
       document.querySelectorAll('.era-filter-checkbox').forEach(cb => cb.checked = false);
       document.querySelectorAll('.style-filter-checkbox').forEach(cb => cb.checked = false);
+      selectCollectionType('all', false);
       
       const slider = document.getElementById('price-range-slider');
       const sliderMob = document.getElementById('price-range-slider-mobile');
@@ -106,6 +167,7 @@ function initFilters() {
     resetBtn.addEventListener('click', () => {
       document.querySelectorAll('.era-filter-checkbox').forEach(cb => cb.checked = false);
       document.querySelectorAll('.style-filter-checkbox').forEach(cb => cb.checked = false);
+      selectCollectionType('all', false);
       handlePriceChange(30000);
       const searchInput = document.getElementById('catalog-search-input');
       const searchMob = document.getElementById('catalog-search-input-mobile');
@@ -168,6 +230,7 @@ function initViewToggle() {
 }
 
 function applyFilters() {
+  currentPage = 1;
   const selectedEras = Array.from(document.querySelectorAll('.era-filter-checkbox:checked')).map(cb => cb.value);
   const selectedStyles = Array.from(document.querySelectorAll('.style-filter-checkbox:checked')).map(cb => cb.value);
   const priceSliderVal = document.getElementById('price-range-slider')?.value || document.getElementById('price-range-slider-mobile')?.value || 30000;
@@ -180,7 +243,7 @@ function applyFilters() {
   const activeCountBadge = document.getElementById('mobile-filter-count-badge');
   const uniqueEras = [...new Set(selectedEras)];
   const uniqueStyles = [...new Set(selectedStyles)];
-  const totalFiltersCount = uniqueEras.length + uniqueStyles.length + (maxPrice < 30000 ? 1 : 0) + (searchQuery ? 1 : 0);
+  const totalFiltersCount = uniqueEras.length + uniqueStyles.length + (maxPrice < 30000 ? 1 : 0) + (searchQuery ? 1 : 0) + (selectedCollection !== 'all' ? 1 : 0);
   
   if (activeCountBadge) {
     if (totalFiltersCount > 0) {
@@ -192,16 +255,38 @@ function applyFilters() {
   }
 
   currentProducts = PRODUCTS_DATA.filter(item => {
+    const matchesCollection = (selectedCollection === 'all') ||
+      (selectedCollection === 'antique' && item.type === 'antique') ||
+      (selectedCollection === 'vintage' && item.type === 'vintage') ||
+      (selectedCollection === 'royal' && item.type === 'royal');
+
     const matchesEra = uniqueEras.length === 0 || uniqueEras.includes(item.era);
     const matchesStyle = uniqueStyles.length === 0 || uniqueStyles.includes(item.style);
     const matchesPrice = item.price <= maxPrice;
     const matchesSearch = !searchQuery || 
       item.title.toLowerCase().includes(searchQuery) ||
       item.shortDesc.toLowerCase().includes(searchQuery) ||
+      (item.type && item.type.toLowerCase().includes(searchQuery)) ||
+      (item.category && item.category.toLowerCase().includes(searchQuery)) ||
       item.era.toLowerCase().includes(searchQuery);
 
-    return matchesEra && matchesStyle && matchesPrice && matchesSearch;
+    return matchesCollection && matchesEra && matchesStyle && matchesPrice && matchesSearch;
   });
+
+  // Update badge counts on collection cards
+  const allCount = PRODUCTS_DATA.length;
+  const antiqueCount = PRODUCTS_DATA.filter(p => p.type === 'antique').length;
+  const vintageCount = PRODUCTS_DATA.filter(p => p.type === 'vintage').length;
+  const royalCount = PRODUCTS_DATA.filter(p => p.type === 'royal').length;
+
+  const badgeAll = document.getElementById('badge-count-all');
+  const badgeAntique = document.getElementById('badge-count-antique');
+  const badgeVintage = document.getElementById('badge-count-vintage');
+  const badgeRoyal = document.getElementById('badge-count-royal');
+  if (badgeAll) badgeAll.textContent = `${allCount} Pieces`;
+  if (badgeAntique) badgeAntique.textContent = `${antiqueCount} Pieces`;
+  if (badgeVintage) badgeVintage.textContent = `${vintageCount} Pieces`;
+  if (badgeRoyal) badgeRoyal.textContent = `${royalCount} Pieces`;
 
   // Sorting
   if (sortOption === 'price-low') {
@@ -222,20 +307,29 @@ function renderProducts() {
   const countBadge = document.getElementById('products-count-badge');
   const showingText = document.getElementById('showing-count-text');
   const totalText = document.getElementById('total-count-text');
-  
+
+  const totalFiltered = currentProducts.length;
+  const totalPages = Math.ceil(totalFiltered / ITEMS_PER_PAGE) || 1;
+
+  if (currentPage > totalPages) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, totalFiltered);
+
   if (countBadge) {
-    countBadge.textContent = `${currentProducts.length} Pieces Found`;
+    countBadge.textContent = `${totalFiltered} Pieces Found`;
   }
   if (showingText) {
-    showingText.textContent = currentProducts.length;
+    showingText.textContent = totalFiltered > 0 ? `${startIndex + 1}–${endIndex}` : '0';
   }
   if (totalText) {
-    totalText.textContent = PRODUCTS_DATA.length;
+    totalText.textContent = totalFiltered;
   }
 
   if (!container) return;
 
-  if (currentProducts.length === 0) {
+  if (totalFiltered === 0) {
     container.innerHTML = `
       <div class="col-span-full text-center py-16 heritage-card p-8">
         <i class="fa-solid fa-compass text-4xl text-amber-700/40 mb-3"></i>
@@ -244,14 +338,16 @@ function renderProducts() {
         <button onclick="document.getElementById('reset-filters-btn')?.click()" class="btn-heritage-gold mt-6 text-sm">Clear All Filters</button>
       </div>
     `;
+    renderPagination(0);
     return;
   }
 
+  const pageProducts = currentProducts.slice(startIndex, endIndex);
   const wishlist = getWishlist();
 
   if (currentView === 'grid') {
     container.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6';
-    container.innerHTML = currentProducts.map(item => {
+    container.innerHTML = pageProducts.map(item => {
       const isWishlisted = wishlist.includes(item.id);
       return `
         <div class="heritage-card group rounded-lg overflow-hidden flex flex-col justify-between">
@@ -289,7 +385,7 @@ function renderProducts() {
   } else {
     // List View
     container.className = 'flex flex-col gap-4 sm:gap-6';
-    container.innerHTML = currentProducts.map(item => {
+    container.innerHTML = pageProducts.map(item => {
       const isWishlisted = wishlist.includes(item.id);
       return `
         <div class="heritage-card group rounded-lg overflow-hidden flex flex-col md:flex-row">
@@ -329,4 +425,63 @@ function renderProducts() {
       `;
     }).join('');
   }
+
+  renderPagination(totalPages);
 }
+
+function renderPagination(totalPages) {
+  const pagContainer = document.getElementById('catalog-pagination-container');
+  if (!pagContainer) return;
+
+  if (totalPages <= 0) {
+    pagContainer.innerHTML = '';
+    return;
+  }
+
+  let html = `
+    <button onclick="goToPage(${currentPage - 1})" 
+            ${currentPage <= 1 ? 'disabled' : ''} 
+            class="px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border ${currentPage <= 1 ? 'opacity-40 cursor-not-allowed bg-stone-100 dark:bg-stone-800/50 text-stone-400 dark:text-stone-600 border-stone-200 dark:border-stone-800' : 'bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 border-stone-300 dark:border-stone-700 hover:border-amber-600 hover:text-amber-700 dark:hover:text-amber-400 shadow-sm cursor-pointer'} flex items-center gap-1.5"
+            aria-label="Previous Page">
+      <i class="fa-solid fa-chevron-left text-[10px]"></i>
+      <span>Previous</span>
+    </button>
+  `;
+
+  for (let p = 1; p <= totalPages; p++) {
+    const isActive = (p === currentPage);
+    html += `
+      <button onclick="goToPage(${p})" 
+              class="w-9 h-9 rounded-lg text-xs font-bold transition-all border ${isActive ? 'bg-amber-700 text-white border-amber-700 shadow-sm' : 'bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 border-stone-300 dark:border-stone-700 hover:border-amber-600 hover:text-amber-700 dark:hover:text-amber-400 shadow-sm cursor-pointer'} flex items-center justify-center">
+        ${p}
+      </button>
+    `;
+  }
+
+  html += `
+    <button onclick="goToPage(${currentPage + 1})" 
+            ${currentPage >= totalPages ? 'disabled' : ''} 
+            class="px-3.5 py-2 rounded-lg text-xs font-semibold transition-all border ${currentPage >= totalPages ? 'opacity-40 cursor-not-allowed bg-stone-100 dark:bg-stone-800/50 text-stone-400 dark:text-stone-600 border-stone-200 dark:border-stone-800' : 'bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 border-stone-300 dark:border-stone-700 hover:border-amber-600 hover:text-amber-700 dark:hover:text-amber-400 shadow-sm cursor-pointer'} flex items-center gap-1.5"
+            aria-label="Next Page">
+      <span>Next</span>
+      <i class="fa-solid fa-chevron-right text-[10px]"></i>
+    </button>
+  `;
+
+  pagContainer.innerHTML = html;
+}
+
+function goToPage(page) {
+  const totalPages = Math.ceil(currentProducts.length / ITEMS_PER_PAGE) || 1;
+  if (page < 1 || page > totalPages || page === currentPage) return;
+  
+  currentPage = page;
+  renderProducts();
+
+  const catalogSection = document.getElementById('products-catalog-section');
+  if (catalogSection) {
+    catalogSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+window.goToPage = goToPage;
+

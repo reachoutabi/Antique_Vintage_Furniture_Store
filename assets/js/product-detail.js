@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function populateProductData(p) {
-  document.title = `${p.title} | 💾 Curated Antique & Vintage | Aethelgard & Co.`;
+  document.title = `${p.title} | 💾 Curated Antique & Vintage | Aethelgard & Finch`;
 
   // Breadcrumb
   const eraBreadcrumb = document.getElementById('detail-breadcrumb-era');
@@ -148,4 +148,12 @@ function renderRelatedProducts(currentP) {
       </div>
     </div>
   `).join('');
+}
+
+function addToCartCurrentProduct() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get('id') || 'prod-101';
+  if (typeof addToCart === 'function') {
+    addToCart(productId);
+  }
 }

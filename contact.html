@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact & Private Viewing | Curated Antique & Vintage | Aethelgard & Co.</title>
+  <title>Contact & Private Viewing | Curated Antique & Vintage | Aethelgard & Finch</title>
   <meta name="description" content="Reserve a private viewing appointment at our Mayfair showroom or send an inquiry to our antiquarians and restorers.">
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -55,8 +55,8 @@
           <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-base sm:text-lg"></i>
         </div>
         <div class="min-w-0 text-left">
-          <span class="font-serif text-base sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100 block leading-none whitespace-nowrap">AETHELGARD & CO.</span>
-          <span class="text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.25em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5 sm:mt-1 whitespace-nowrap">Heritage Antiques & Gallery</span>
+          <span class="font-serif text-base sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100 block leading-none whitespace-nowrap">AETHELGARD & FINCH</span>
+          <span class="text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.25em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5 sm:mt-1 whitespace-nowrap">ANTIQUE & VINTAGE ATELIER</span>
         </div>
       </a>
 
@@ -241,7 +241,7 @@
       </div>
       <div class="w-full h-80 sm:h-[400px] rounded-lg overflow-hidden border border-stone-200 dark:border-stone-800 shadow-inner bg-stone-900 relative">
         <iframe 
-          title="Aethelgard & Co. Mayfair Showroom Map" 
+          title="Aethelgard & Finch Mayfair Showroom Map" 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.0537233261623!2d-0.14488392337947113!3d51.51221190900139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d54b7c1265%3A0x6b2b733df91ef38d!2sNew%20Bond%20St%2C%20Mayfair%2C%20London%20W1S%202XN%2C%20UK!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk" 
           class="w-full h-full border-0" 
           allowfullscreen="" 
@@ -288,10 +288,13 @@
         <!-- Column 1: Brand & Social -->
         <div class="footer-col-brand space-y-4 text-left">
           <a href="index.html" class="brand-logo-container inline-flex items-center gap-3 group text-left" dir="ltr">
-            <div class="w-9 h-9 rounded-lg bg-amber-700/20 border border-amber-600/40 flex items-center justify-center shrink-0 group-hover:border-amber-500 transition-colors">
+            <div class="w-9 h-9 rounded-full bg-amber-700/20 border border-amber-600/40 flex items-center justify-center shrink-0 group-hover:border-amber-500 transition-colors">
               <i class="fa-solid fa-crown text-amber-500 text-base"></i>
             </div>
-            <span class="font-serif text-lg font-bold tracking-tight text-white block leading-snug group-hover:text-amber-400 transition-colors">AETHELGARD & CO.</span>
+            <div class="min-w-0 text-left">
+              <span class="font-serif text-lg font-bold tracking-tight text-white block leading-snug group-hover:text-amber-400 transition-colors">AETHELGARD & FINCH</span>
+              <span class="text-[9px] tracking-[0.2em] text-amber-500 uppercase font-semibold block mt-0.5 whitespace-nowrap">ANTIQUE & VINTAGE ATELIER</span>
+            </div>
           </a>
           
           <p class="text-xs text-stone-400 leading-relaxed text-left">
@@ -371,11 +374,17 @@
 
       <!-- Bottom Sub-Footer Bar -->
       <div class="pt-5 pb-3 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500 text-center sm:text-left">
-        <p>© 2026 Aethelgard & Co. All rights reserved.</p>
+        <p>© 2026 Aethelgard & Finch. All rights reserved.</p>
       </div>
 
     </div>
-  </footer>
+  <!-- Floating Right-Side Sticky Wishlist Button -->
+  <div class="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40">
+    <button class="wishlist-drawer-trigger relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-600 dark:bg-amber-500 text-stone-950 shadow-2xl flex items-center justify-center hover:scale-110 hover:bg-amber-500 dark:hover:bg-amber-400 transition-all cursor-pointer border-2 border-amber-300 dark:border-amber-400 group" title="View Saved Wishlist" aria-label="View Saved Wishlist">
+      <i class="fa-solid fa-heart text-lg sm:text-xl text-stone-950 group-hover:scale-110 transition-transform"></i>
+      <span class="wishlist-count-badge absolute -top-1 -right-1 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-red-600 text-white text-[10px] sm:text-xs font-bold flex items-center justify-center border-2 border-white dark:border-stone-950 hidden shadow-md">0</span>
+    </button>
+  </div>
 
   <!-- Wishlist Slide-Over Drawer (💾 Saved Collection) -->
   <div id="wishlist-drawer" class="modal-overlay">
@@ -406,9 +415,14 @@
       
       <!-- Drawer Header -->
       <div class="p-5 border-b border-stone-200 dark:border-stone-800 flex justify-between items-center bg-stone-100/50 dark:bg-stone-950">
-        <div class="brand-logo-container flex items-center gap-2" dir="ltr">
-          <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-lg"></i>
-          <span class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 tracking-tight text-left">AETHELGARD & CO.</span>
+        <div class="brand-logo-container flex items-center gap-2.5" dir="ltr">
+          <div class="w-8 h-8 rounded-full bg-amber-700/10 border border-amber-600/30 flex items-center justify-center">
+            <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-sm"></i>
+          </div>
+          <div class="text-left">
+            <span class="font-serif font-bold text-base block leading-none text-stone-900 dark:text-stone-100">AETHELGARD & FINCH</span>
+            <span class="text-[9px] tracking-[0.2em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5">ANTIQUE & VINTAGE ATELIER</span>
+          </div>
         </div>
         <button id="close-mobile-menu" class="w-8 h-8 rounded-full flex items-center justify-center text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Close Mobile Menu">
           <i class="fa-solid fa-xmark text-lg"></i>

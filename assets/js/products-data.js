@@ -6,6 +6,7 @@
 const PRODUCTS_DATA = [
   {
     id: "prod-101",
+    type: "antique",
     title: "18th-Century Chippendale Mahogany Bureau Bookcase",
     era: "Georgian",
     eraLabel: "Georgian (c. 1765)",
@@ -33,6 +34,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-102",
+    type: "antique",
     title: "Victorian Chesterfield Tufted Armchair in Oxblood Leather",
     era: "Victorian",
     eraLabel: "Victorian (c. 1885)",
@@ -60,6 +62,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-103",
+    type: "vintage",
     title: "Art Deco Walnut & Amboyna Executive Desk by Jules Leleu",
     era: "Art Deco",
     eraLabel: "Art Deco (c. 1928)",
@@ -87,6 +90,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-104",
+    type: "antique",
     title: "Regency Giltwood Convex Girandole Mirror",
     era: "Regency",
     eraLabel: "Regency (c. 1815)",
@@ -114,6 +118,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-105",
+    type: "vintage",
     title: "Mid-Century Modern Rosewood Credenza by Florence Knoll",
     era: "Mid-Century Modern",
     eraLabel: "Mid-Century Modern (c. 1962)",
@@ -141,6 +146,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-106",
+    type: "antique",
     title: "Edwardian Inlaid Mahogany Oval Dining Table & 8 Chairs",
     era: "Edwardian",
     eraLabel: "Edwardian (c. 1905)",
@@ -168,6 +174,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-107",
+    type: "vintage",
     title: "Art Nouveau Majorelle Carved Walnut Floral Chandelier",
     era: "Art Nouveau",
     eraLabel: "Art Nouveau (c. 1902)",
@@ -195,6 +202,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-108",
+    type: "antique",
     title: "Colonial Anglo-Indian Carved Teak Four-Poster Bed",
     era: "Colonial",
     eraLabel: "Colonial (c. 1870)",
@@ -222,6 +230,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-109",
+    type: "antique",
     title: "19th-Century Sevres Porcelain & Ormolu Mantle Clock",
     era: "Victorian",
     eraLabel: "Victorian (c. 1860)",
@@ -249,6 +258,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-110",
+    type: "antique",
     title: "Georgian Mahogany Library Steps / Convert Sofa Table",
     era: "Georgian",
     eraLabel: "Georgian (c. 1790)",
@@ -276,6 +286,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-111",
+    type: "vintage",
     title: "Art Deco Burl Birch Cocktail Cabinet by Axel Einar Hjorth",
     era: "Art Deco",
     eraLabel: "Art Deco (c. 1934)",
@@ -303,6 +314,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: "prod-112",
+    type: "antique",
     title: "Pair of Victorian Rosewood Spoon-Back Salon Chairs",
     era: "Victorian",
     eraLabel: "Victorian (c. 1875)",
@@ -327,6 +339,342 @@ const PRODUCTS_DATA = [
     ],
     shortDesc: "Elegantly proportioned pair of mid-Victorian rosewood parlor chairs with delicate cabriole legs and hand-carved crest rails.",
     fullDesc: "These matching chairs display the refined fluid curves of mid-19th century British gentleman salon furniture, restored with hand-padded horsehair seating."
+  },
+  {
+    id: "prod-113",
+    type: "vintage",
+    title: "Scandinavian Teak Credenza by Hans Wegner",
+    era: "Mid-Century Modern",
+    eraLabel: "Mid-Century Modern (c. 1958)",
+    style: "Cabinets & Armoires",
+    category: "Cabinets & Armoires",
+    price: 9800,
+    priceFormatted: "£9,800",
+    priceOnRequest: false,
+    condition: "Original Teak Patina & Tambour Doors",
+    dimensions: "H: 80cm | W: 200cm | D: 49cm",
+    material: "Danish Teak, Brass Hinges, Sculpted Wooden Pulls",
+    origin: "Copenhagen, Denmark",
+    circa: "c. 1958",
+    provenance: "RY Møbler Copenhagen Stamp",
+    provenanceDoc: "DOC-DK-1958-55M",
+    restored: true,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "Iconic Danish Mid-Century Modern credenza in golden teak featuring sliding tambour doors and oak-lined interior tray drawers.",
+    fullDesc: "Designed by Hans Wegner for RY Møbler, model RY-25 exemplifies Master Joiner Wegner's seamless integration of architectural proportions and organic woodwork."
+  },
+  {
+    id: "prod-114",
+    type: "vintage",
+    title: "Italian Postmodern Leather Lounge Chairs by Mario Bellini",
+    era: "Mid-Century Modern",
+    eraLabel: "Retro (c. 1977)",
+    style: "Chairs & Seating",
+    category: "Chairs & Seating",
+    price: 7400,
+    priceFormatted: "£7,400",
+    priceOnRequest: false,
+    condition: "Original Terracotta Aniline Leather",
+    dimensions: "H: 82cm | W: 85cm | D: 88cm",
+    material: "Steel Frame, Molded Foam, Aniline Italian Leather",
+    origin: "Milan, Italy",
+    circa: "c. 1977",
+    provenance: "Cassina Milan Serial Stamp",
+    provenanceDoc: "DOC-IT-1977-21N",
+    restored: false,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "Pair of 'Cab' model 412 armchairs in rich cognac aniline leather over internal steel skeleton.",
+    fullDesc: "Mario Bellini's Cab chairs are celebrated as milestone achievements in 1970s Italian furniture design, featuring stitched saddle leather zipped directly onto a steel armature."
+  },
+  {
+    id: "prod-115",
+    type: "vintage",
+    title: "French Art Deco Macassar Ebony & Brass Coffee Table",
+    era: "Art Deco",
+    eraLabel: "Art Deco (c. 1935)",
+    style: "Tables & Desks",
+    category: "Tables & Desks",
+    price: 6800,
+    priceFormatted: "£6,800",
+    priceOnRequest: false,
+    condition: "Restored High-Gloss Shellac Patina",
+    dimensions: "H: 48cm | L: 130cm | W: 70cm",
+    material: "Macassar Ebony Veneer, Inlaid Brass Strips",
+    origin: "Paris, France",
+    circa: "c. 1935",
+    provenance: "Private Collector, Lyon",
+    provenanceDoc: "DOC-FR-1935-89O",
+    restored: true,
+    featured: false,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "Streamlined French Art Deco coffee table exhibiting high-contrast Macassar ebony striped grain and brushed brass stringing.",
+    fullDesc: "Inspired by Parisian salon furniture of the 1930s, this coffee table displays a rectangular low profile supported by elegant curved pedestal feet."
+  },
+  {
+    id: "prod-116",
+    type: "vintage",
+    title: "Retro 1970s Chrome & Smoked Glass Arc Floor Lamp",
+    era: "Mid-Century Modern",
+    eraLabel: "Retro 70s (c. 1974)",
+    style: "Lighting",
+    category: "Lighting",
+    price: 3200,
+    priceFormatted: "£3,200",
+    priceOnRequest: false,
+    condition: "Polished Chrome & Serviced Wiring",
+    dimensions: "H: 210cm | Arch Reach: 180cm | Base Dia: 45cm",
+    material: "Solid Carrara Marble Base, Tubular Chrome, Smoked Glass",
+    origin: "Turin, Italy",
+    circa: "c. 1974",
+    provenance: "Harvey Guzzini Atelier",
+    provenanceDoc: "DOC-IT-1974-63P",
+    restored: true,
+    featured: false,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1543198181-e619b694b30c?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "Dramatic Italian 1970s arc floor lamp with a heavy white Carrara marble base, telescoping chrome arch, and smoked acrylic globe shade.",
+    fullDesc: "An architectural lighting centerpiece designed in the style of Guzzini, extending gracefully over lounge seating to create ambient warm illumination."
+  },
+  {
+    id: "prod-117",
+    type: "antique",
+    title: "George III Inlaid Satinwood & Rosewood Demilune Console Table",
+    era: "Georgian",
+    eraLabel: "Georgian (c. 1790)",
+    style: "Tables & Desks",
+    category: "Tables & Desks",
+    price: 9500,
+    priceFormatted: "£9,500",
+    priceOnRequest: false,
+    condition: "Exceptional - Original French Polish & Inlay Intact",
+    dimensions: "H: 82cm | W: 120cm | D: 52cm",
+    material: "West Indian Satinwood, Tulipwood & Rosewood Inlays",
+    origin: "London, England",
+    circa: "c. 1790",
+    provenance: "Estate of Sir Henry Fairfax, Yorkshire",
+    provenanceDoc: "DOC-UK-1790-71F",
+    restored: true,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "A fine George III demilune pier table featuring delicate fan marquetry, tulipwood crossbanding, and tapered square legs with original spade feet.",
+    fullDesc: "This elegant late 18th-century console table exemplifies Neoclassical refinement influenced by Robert Adam and George Hepplewhite. The top displays a central fan motif inlaid with stained woods surrounded by satinwood and rosewood borders."
+  },
+  {
+    id: "prod-118",
+    type: "vintage",
+    title: "Mid-Century Danish Teak Lounge Chairs by Hans Wegner (Pair)",
+    era: "Mid-Century Modern",
+    eraLabel: "Mid-Century Modern (c. 1955)",
+    style: "Chairs & Seating",
+    category: "Chairs & Seating",
+    price: 7800,
+    priceFormatted: "£7,800",
+    priceOnRequest: false,
+    condition: "Restored - New Bouclé Wool Upholstery",
+    dimensions: "H: 78cm | W: 74cm | D: 76cm",
+    material: "Solid Burmese Teak, Textured Cream Bouclé Fabric",
+    origin: "Copenhagen, Denmark",
+    circa: "c. 1955",
+    provenance: "Stamped AP Stolen Copenhagen Mark",
+    provenanceDoc: "DOC-DK-1955-42W",
+    restored: true,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "A magnificent pair of original mid-century Danish teak lounge chairs attributed to Hans J. Wegner, newly reupholstered in premium textured cream bouclé.",
+    fullDesc: "Iconic 1950s Scandinavian design meets artisan restoration. Crafted from solid sculptural Burmese teak with organic flowing armrests and ergonomic angled backs."
+  },
+  {
+    id: "prod-119",
+    type: "royal",
+    title: "Imperial French Empire Ormolu Giltwood Throne Chair",
+    era: "Regency",
+    eraLabel: "French Empire (c. 1810)",
+    style: "Chairs & Seating",
+    category: "Chairs & Seating",
+    price: 24500,
+    priceFormatted: "£24,500",
+    priceOnRequest: false,
+    condition: "Museum Grade - Original Gilt & Crimson Velvet",
+    dimensions: "H: 142cm | W: 85cm | D: 78cm",
+    material: "Hand-Carved Beechwood, 24k Gold Leaf, Crimson Silk Velvet",
+    origin: "Paris, France (Royal Atelier)",
+    circa: "c. 1810",
+    provenance: "Compiègne Palace Inventory Markings",
+    provenanceDoc: "DOC-FR-1810-ROYAL01",
+    restored: false,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "An imperial throne chair crafted for French royal residences, featuring hand-carved eagle armrests, 24-karat gold leaf gilding, and original silk velvet.",
+    fullDesc: "Commissioned during the height of the French Empire period, this magnificent giltwood throne chair displays majestic heraldic eagle armrests, imperial laurel wreath motifs, and original hand-woven crimson silk velvet upholstery."
+  },
+  {
+    id: "prod-120",
+    type: "royal",
+    title: "Louis XIV André-Charles Boulle Marquetry Armoire",
+    era: "Georgian",
+    eraLabel: "Louis XIV (c. 1700)",
+    style: "Cabinets & Armoires",
+    category: "Cabinets & Armoires",
+    price: 48000,
+    priceFormatted: "£48,000",
+    priceOnRequest: false,
+    condition: "Exceptional Royal Provenance - Preserved Inlay",
+    dimensions: "H: 235cm | W: 150cm | D: 62cm",
+    material: "Tortoiseshell, Brass Inlay, Ebony, Ormolu Mounts",
+    origin: "Parisian Royal Workshop",
+    circa: "c. 1700",
+    provenance: "Ducal Family Archive, Loire Valley",
+    provenanceDoc: "DOC-FR-1700-ROYAL02",
+    restored: true,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "A monumental premiere-partie Boulle marquetry armoire inlaid with brass and tortoiseshell, adorned with mercury-gilded bronze mounts.",
+    fullDesc: "Attributed to the atelier of André-Charles Boulle, master cabinetmaker to King Louis XIV. Features intricate brass arabesques inlaid into natural red tortoiseshell, framed by heavy ebony borders and crowned with mercury-gilded bronze allegorical figures."
+  },
+  {
+    id: "prod-121",
+    type: "royal",
+    title: "Tsarist Russian Imperial Malachite & Gilt-Bronze Table",
+    era: "Victorian",
+    eraLabel: "Imperial Russian (c. 1845)",
+    style: "Tables & Desks",
+    category: "Tables & Desks",
+    price: 36000,
+    priceFormatted: "£36,000",
+    priceOnRequest: false,
+    condition: "Impeccable - Original Russian Malachite Veneer",
+    dimensions: "H: 82cm | Diameter: 110cm",
+    material: "Siberian Malachite, Fire-Gilded Bronze, Ormolu Base",
+    origin: "St. Petersburg, Imperial Russia",
+    circa: "c. 1845",
+    provenance: "Romanov Dynasty Winter Palace Inventory",
+    provenanceDoc: "DOC-RU-1845-ROYAL03",
+    restored: true,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "An extraordinary center table with a circular top formed of book-matched Siberian malachite, supported by a heavy fire-gilded bronze triform pedestal.",
+    fullDesc: "Crafted in St. Petersburg during the reign of Tsar Nicholas I, featuring Russian mosaic technique malachite top showcasing vivid emerald banding, mounted on sculpted caryatid gilt-bronze legs."
+  },
+  {
+    id: "prod-122",
+    type: "royal",
+    title: "Queen Anne Royal Walnut & Seaweed Marquetry Bureau",
+    era: "Georgian",
+    eraLabel: "Queen Anne (c. 1710)",
+    style: "Tables & Desks",
+    category: "Tables & Desks",
+    price: 29500,
+    priceFormatted: "£29,500",
+    priceOnRequest: false,
+    condition: "Museum Quality - Original Brass Handles",
+    dimensions: "H: 108cm | W: 96cm | D: 54cm",
+    material: "English Figured Walnut, Holly & Boxwood Marquetry",
+    origin: "London, England",
+    circa: "c. 1710",
+    provenance: "Kensington Royal Household Estate",
+    provenanceDoc: "DOC-UK-1710-ROYAL04",
+    restored: true,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "A fine Queen Anne period slant-front writing bureau decorated throughout with exquisite delicate 'seaweed' marquetry inlays.",
+    fullDesc: "Featuring brilliant book-matched burr walnut veneers inlaid with fine arabesque seaweed marquetry panels. The fall front reveals a step-curved interior with secret sliding well and engraved silvered brass hardware."
+  },
+  {
+    id: "prod-123",
+    type: "royal",
+    title: "Habsburg Imperial Carved Giltwood & Crystal Chandelier",
+    era: "Victorian",
+    eraLabel: "Habsburg Dynasty (c. 1870)",
+    style: "Lighting",
+    category: "Lighting",
+    price: 21000,
+    priceFormatted: "£21,000",
+    priceOnRequest: false,
+    condition: "Fully Rewired to Modern Standards - All Original Crystals",
+    dimensions: "H: 135cm | Diameter: 98cm",
+    material: "Hand-Carved Giltwood, Bohemian Cut Lead Crystal",
+    origin: "Vienna, Austria",
+    circa: "c. 1870",
+    provenance: "Schönbrunn Palace Guest Salon Collection",
+    provenanceDoc: "DOC-AT-1870-ROYAL05",
+    restored: true,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "A grand 12-arm imperial Viennese crystal chandelier with hand-carved water-gilded frame and faceted Bohemian hand-cut crystal drops.",
+    fullDesc: "Commissioned for imperial reception halls in Vienna. Features carved acanthus leaf giltwood central column encircled by 12 scrolling branches hung with heavy hand-cut faceted rock crystal pendeloques."
+  },
+  {
+    id: "prod-124",
+    type: "royal",
+    title: "Royal Crest Pier Glass Mirror in 24k Gold Leaf",
+    era: "Regency",
+    eraLabel: "Regency / George IV (c. 1820)",
+    style: "Mirrors & Frames",
+    category: "Mirrors & Frames",
+    price: 17800,
+    priceFormatted: "£17,800",
+    priceOnRequest: false,
+    condition: "Original Mercury Plate Mirror Glass - Pristine Gilding",
+    dimensions: "H: 210cm | W: 115cm",
+    material: "Water-Gilded Pine & Composition, Beveled Mercury Glass",
+    origin: "Bath, England",
+    circa: "c. 1820",
+    provenance: "Royal Crescent Manor House, Somerset",
+    provenanceDoc: "DOC-UK-1820-ROYAL06",
+    restored: true,
+    featured: true,
+    rating: 5,
+    images: [
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1000&q=80"
+    ],
+    shortDesc: "A monumental Regency pier mirror surmounted by a carved royal crest coat of arms, lion masks, and fluted ionic pilasters.",
+    fullDesc: "Designed for grand ballroom piers during the George IV era. Features original thick beveled mercury glass, framed by elaborate oil and water gilding in 24-karat gold leaf, topped with a heraldic crest finial."
   }
 ];
 
@@ -337,4 +685,16 @@ function getProductById(id) {
 
 function getFeaturedProducts() {
   return PRODUCTS_DATA.filter(p => p.featured);
+}
+
+function getAntiqueProducts() {
+  return PRODUCTS_DATA.filter(p => p.type === 'antique');
+}
+
+function getVintageProducts() {
+  return PRODUCTS_DATA.filter(p => p.type === 'vintage');
+}
+
+function getRoyalProducts() {
+  return PRODUCTS_DATA.filter(p => p.type === 'royal');
 }

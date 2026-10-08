@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curated Antique & Vintage Furniture Catalog | Aethelgard & Co.</title>
+  <title>Curated Antique & Vintage Furniture Catalog | Aethelgard & Finch</title>
   <meta name="description" content="Filter authenticated antique furniture by Era (Georgian, Victorian, Art Deco, Mid-Century) and Category (Chairs, Tables, Cabinets, Mirrors).">
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -54,8 +54,8 @@
           <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-base sm:text-lg"></i>
         </div>
         <div class="min-w-0 text-left">
-          <span class="font-serif text-base sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100 block leading-none whitespace-nowrap">AETHELGARD & CO.</span>
-          <span class="text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.25em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5 sm:mt-1 whitespace-nowrap">Heritage Antiques & Gallery</span>
+          <span class="font-serif text-base sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100 block leading-none whitespace-nowrap">AETHELGARD & FINCH</span>
+          <span class="text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.25em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5 sm:mt-1 whitespace-nowrap">ANTIQUE & VINTAGE ATELIER</span>
         </div>
       </a>
 
@@ -82,7 +82,7 @@
           </div>
         </div>
 
-        <a href="products.html" class="text-amber-700 dark:text-amber-500 font-semibold whitespace-nowrap">Collection</a>
+        <a href="products.html" class="text-amber-700 dark:text-amber-500 font-semibold whitespace-nowrap">Collections</a>
         <a href="restoration.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors whitespace-nowrap">Restoration</a>
         <a href="provenance.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors whitespace-nowrap">Provenance</a>
         <a href="about.html" class="hover:text-amber-700 dark:hover:text-amber-500 transition-colors whitespace-nowrap">About Us</a>
@@ -100,7 +100,7 @@
         </button>
 
         <!-- Book CTA Button -->
-        <a href="contact.html#appointment" class="hidden lg:inline-flex btn-heritage-gold text-xs uppercase tracking-wider font-semibold py-2.5 px-4">
+        <a href="contact.html#appointment" class="hidden lg:inline-flex btn-heritage-gold text-xs uppercase tracking-wider font-bold py-2.5 px-4 shadow-md">
           <i class="fa-regular fa-calendar-check mr-1.5"></i> Book
         </a>
 
@@ -118,7 +118,7 @@
   <section class="w-full text-stone-900 dark:text-white py-14 text-center space-y-3 border-b border-stone-200/60 dark:border-stone-800/60" style="background-color: var(--bg-primary) !important;">
     <div class="max-w-4xl mx-auto px-4 text-center flex flex-col items-center justify-center">
       <span class="text-xs uppercase tracking-widest text-amber-700 dark:text-amber-400 font-bold block text-center" style="text-align: center !important; margin-left: auto !important; margin-right: auto !important;">Curated Inventory</span>
-      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-center mt-2 mb-3" style="text-align: center !important; margin-left: auto !important; margin-right: auto !important;">Authenticated Antique Collection</h1>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-center mt-2 mb-3" style="text-align: center !important; margin-left: auto !important; margin-right: auto !important;">Authenticated Collections</h1>
     </div>
   </section>
 
@@ -156,6 +156,25 @@
           <div class="relative flex items-center">
             <input id="catalog-search-input" type="text" placeholder="e.g. Chippendale, Desk..." class="form-input text-xs pl-10" style="padding-left: 2.5rem !important;">
             <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-xs text-stone-400 pointer-events-none z-10"></i>
+          </div>
+        </div>
+
+        <!-- Collection Type Filter (All / Antique / Vintage / Royal) -->
+        <div>
+          <h4 class="font-serif font-bold text-sm text-stone-900 dark:text-stone-100 mb-2 border-b border-stone-200 dark:border-stone-800 pb-1">Collection Type</h4>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-center gap-2 cursor-pointer text-left font-medium">
+              <input type="radio" name="collection-type-radio" value="all" checked class="collection-type-radio text-amber-700 focus:ring-amber-700 flex-shrink-0 cursor-pointer"> <span>All Collections</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-left font-medium">
+              <input type="radio" name="collection-type-radio" value="royal" class="collection-type-radio text-amber-700 focus:ring-amber-700 flex-shrink-0 cursor-pointer"> <span class="text-amber-600 dark:text-amber-400 font-bold"><i class="fa-solid fa-crown text-xs mr-1"></i> Royal Collection (Imperial & Estate)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-left font-medium">
+              <input type="radio" name="collection-type-radio" value="antique" class="collection-type-radio text-amber-700 focus:ring-amber-700 flex-shrink-0 cursor-pointer"> <span>Antique Collection (100+ Yrs)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-left font-medium">
+              <input type="radio" name="collection-type-radio" value="vintage" class="collection-type-radio text-amber-700 focus:ring-amber-700 flex-shrink-0 cursor-pointer"> <span>Vintage Collection (20–99 Yrs)</span>
+            </label>
           </div>
         </div>
 
@@ -266,11 +285,16 @@
           <!-- Populated dynamically by catalog.js -->
         </div>
 
+        <!-- Products Pagination Controls -->
+        <div id="catalog-pagination-container" class="mt-8 flex flex-wrap items-center justify-center gap-2">
+          <!-- Populated dynamically by catalog.js -->
+        </div>
+
         <!-- Bottom Products Counter Bar -->
-        <div id="catalog-bottom-counter" class="heritage-card p-4 rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs text-stone-600 dark:text-stone-400 mt-8">
+        <div id="catalog-bottom-counter" class="heritage-card p-4 rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs text-stone-600 dark:text-stone-400 mt-4">
           <div class="flex items-center gap-2">
             <i class="fa-solid fa-boxes-stacked text-amber-700 dark:text-amber-500 text-sm"></i>
-            <span>Showing <strong id="showing-count-text" class="text-stone-900 dark:text-stone-100 font-bold">12</strong> of <strong id="total-count-text" class="text-stone-900 dark:text-stone-100 font-bold">12</strong> total products</span>
+            <span>Showing <strong id="showing-count-text" class="text-stone-900 dark:text-stone-100 font-bold">1–8</strong> of <strong id="total-count-text" class="text-stone-900 dark:text-stone-100 font-bold">16</strong> total products</span>
           </div>
           <div class="text-[11px] text-stone-500 italic">
             All pieces include museum-grade authentication & provenance
@@ -292,10 +316,13 @@
         <!-- Column 1: Brand & Social -->
         <div class="footer-col-brand space-y-4 text-left">
           <a href="index.html" class="brand-logo-container inline-flex items-center gap-3 group text-left" dir="ltr">
-            <div class="w-9 h-9 rounded-lg bg-amber-700/20 border border-amber-600/40 flex items-center justify-center shrink-0 group-hover:border-amber-500 transition-colors">
+            <div class="w-9 h-9 rounded-full bg-amber-700/20 border border-amber-600/40 flex items-center justify-center shrink-0 group-hover:border-amber-500 transition-colors">
               <i class="fa-solid fa-crown text-amber-500 text-base"></i>
             </div>
-            <span class="font-serif text-lg font-bold tracking-tight text-white block leading-snug group-hover:text-amber-400 transition-colors">AETHELGARD & CO.</span>
+            <div class="min-w-0 text-left">
+              <span class="font-serif text-lg font-bold tracking-tight text-white block leading-snug group-hover:text-amber-400 transition-colors">AETHELGARD & FINCH</span>
+              <span class="text-[9px] tracking-[0.2em] text-amber-500 uppercase font-semibold block mt-0.5 whitespace-nowrap">ANTIQUE & VINTAGE ATELIER</span>
+            </div>
           </a>
           
           <p class="text-xs text-stone-400 leading-relaxed text-left">
@@ -375,11 +402,17 @@
 
       <!-- Bottom Sub-Footer Bar -->
       <div class="pt-5 pb-3 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500 text-center sm:text-left">
-        <p>© 2026 Aethelgard & Co. All rights reserved.</p>
+        <p>© 2026 Aethelgard & Finch. All rights reserved.</p>
       </div>
 
     </div>
-  </footer>
+  <!-- Floating Right-Side Sticky Wishlist Button -->
+  <div class="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40">
+    <button class="wishlist-drawer-trigger relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-600 dark:bg-amber-500 text-stone-950 shadow-2xl flex items-center justify-center hover:scale-110 hover:bg-amber-500 dark:hover:bg-amber-400 transition-all cursor-pointer border-2 border-amber-300 dark:border-amber-400 group" title="View Saved Wishlist" aria-label="View Saved Wishlist">
+      <i class="fa-solid fa-heart text-lg sm:text-xl text-stone-950 group-hover:scale-110 transition-transform"></i>
+      <span class="wishlist-count-badge absolute -top-1 -right-1 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-red-600 text-white text-[10px] sm:text-xs font-bold flex items-center justify-center border-2 border-white dark:border-stone-950 hidden shadow-md">0</span>
+    </button>
+  </div>
 
   <!-- Wishlist Slide-Over Drawer -->
   <div id="wishlist-drawer" class="modal-overlay">
@@ -415,6 +448,25 @@
 
       <!-- Drawer Scrollable Filter Controls -->
       <div class="flex-1 overflow-y-auto p-5 space-y-6">
+        <!-- Collection Type Filter (Mobile) -->
+        <div>
+          <h4 class="font-serif font-bold text-sm text-stone-900 dark:text-stone-100 mb-2 border-b border-stone-200 dark:border-stone-800 pb-1">Collection Type</h4>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-center gap-2 cursor-pointer text-left font-medium">
+              <input type="radio" name="collection-type-radio-mobile" value="all" checked class="collection-type-radio text-amber-700 focus:ring-amber-700 flex-shrink-0 cursor-pointer"> <span>All Collections</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-left font-medium">
+              <input type="radio" name="collection-type-radio-mobile" value="royal" class="collection-type-radio text-amber-700 focus:ring-amber-700 flex-shrink-0 cursor-pointer"> <span class="text-amber-600 dark:text-amber-400 font-bold"><i class="fa-solid fa-crown text-xs mr-1"></i> Royal Collection (Imperial & Estate)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-left font-medium">
+              <input type="radio" name="collection-type-radio-mobile" value="antique" class="collection-type-radio text-amber-700 focus:ring-amber-700 flex-shrink-0 cursor-pointer"> <span>Antique Collection (100+ Yrs)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-left font-medium">
+              <input type="radio" name="collection-type-radio-mobile" value="vintage" class="collection-type-radio text-amber-700 focus:ring-amber-700 flex-shrink-0 cursor-pointer"> <span>Vintage Collection (20–99 Yrs)</span>
+            </label>
+          </div>
+        </div>
+
         <!-- Era Filter -->
         <div>
           <h4 class="font-serif font-bold text-sm text-stone-900 dark:text-stone-100 mb-2 border-b border-stone-200 dark:border-stone-800 pb-1">Filter by Era</h4>
@@ -500,8 +552,8 @@
             <i class="fa-solid fa-crown text-amber-700 dark:text-amber-500 text-sm"></i>
           </div>
           <div class="text-left">
-            <span class="font-serif font-bold text-base block leading-none text-stone-900 dark:text-stone-100">AETHELGARD & CO.</span>
-            <span class="text-[9px] tracking-[0.2em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5">Heritage Gallery</span>
+            <span class="font-serif font-bold text-base block leading-none text-stone-900 dark:text-stone-100">AETHELGARD & FINCH</span>
+            <span class="text-[9px] tracking-[0.2em] text-amber-800 dark:text-amber-500 uppercase font-semibold block mt-0.5">ANTIQUE & VINTAGE ATELIER</span>
           </div>
         </div>
         <button id="close-mobile-menu" class="w-10 h-10 rounded-full flex items-center justify-center text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-lg" aria-label="Close Menu">
@@ -526,7 +578,7 @@
           </a>
         </div>
 
-        <a href="products.html" class="block py-2.5 px-3 rounded-lg bg-amber-700/10 dark:bg-amber-500/10 font-bold text-amber-800 dark:text-amber-400 transition-colors">Collection</a>
+        <a href="products.html" class="block py-2.5 px-3 rounded-lg bg-amber-700/10 dark:bg-amber-500/10 font-bold text-amber-800 dark:text-amber-400 transition-colors">Collections</a>
         <a href="restoration.html" class="block py-2.5 px-3 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors">Restoration</a>
         <a href="provenance.html" class="block py-2.5 px-3 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors">Provenance</a>
         <a href="about.html" class="block py-2.5 px-3 rounded-lg hover:bg-amber-700/10 dark:hover:bg-amber-500/10 text-stone-800 dark:text-stone-200 transition-colors">About</a>

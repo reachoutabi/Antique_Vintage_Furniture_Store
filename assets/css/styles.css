@@ -107,11 +107,12 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   background: var(--accent-gold-hover);
 }
 
-/* Gold Gradient & Utility Classes */
+/* Gold Accent & Utility Classes */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 50%, #997834 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #C5A059;
+}
+html.dark .gold-gradient-text {
+  color: #E5BB6B;
 }
 
 .heritage-border {
@@ -417,6 +418,28 @@ html.dark header.header-sticky,
 html.dark .header-sticky {
   background-color: rgba(18, 16, 14, 0.96) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Unified Desktop Header Navigation - Constant font size without jumps at 1024px, 1140px, 1280px */
+@media (min-width: 1024px) {
+  .header-sticky nav {
+    font-size: 0.8125rem !important; /* Constant 13px font size across all desktop widths */
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .header-sticky nav {
+    gap: 0.75rem !important; /* 12px gap for mid-desktop screens */
+  }
+  .header-sticky .brand-logo-container span.font-serif {
+    font-size: 1.25rem !important;
+  }
+  .header-sticky a.btn-heritage-gold {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.75rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
 }
 
 
@@ -1166,12 +1189,18 @@ label:has(> svg),
   flex-direction: row !important;
 }
 
-/* 2. Force any icon (i or svg) inside an icon-text pairing to have order -1 so it is ALWAYS on the LEFT */
-i,
-svg,
-[dir="rtl"] i,
-[dir="rtl"] svg {
-  order: -1 !important;
+/* 2. Trailing icons (dropdown chevrons, right arrows) appear on the RIGHT side of text */
+i.fa-chevron-down,
+i.fa-chevron-right,
+i.fa-chevron-up,
+i.fa-chevron-left,
+i.fa-arrow-right,
+i.fa-angle-down,
+i.fa-angle-right,
+i.fa-external-link,
+i.fa-arrow-up-right-from-square,
+.icon-right {
+  order: 1 !important;
 }
 
 /* ==========================================================================
@@ -1787,7 +1816,12 @@ aside label span {
     padding-bottom: 0 !important;
   }
 }
-
-
-
+/* Utility to hide scrollbar for scrollable containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
