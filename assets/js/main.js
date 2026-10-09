@@ -89,6 +89,13 @@ function updateRTLIconState(isRTL) {
   rtlBtns.forEach(btn => {
     btn.setAttribute('title', isRTL ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
     btn.setAttribute('aria-label', isRTL ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
+    
+    // Dynamically update the span label inside the button
+    const labelSpan = btn.querySelector('span');
+    if (labelSpan) {
+      labelSpan.textContent = isRTL ? 'LTR Layout' : 'RTL Layout';
+    }
+
     if (isRTL) {
       btn.classList.add('text-amber-700', 'dark:text-amber-400', 'bg-amber-700/20', 'dark:bg-amber-500/20');
     } else {

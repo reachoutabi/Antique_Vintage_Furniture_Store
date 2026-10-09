@@ -133,11 +133,11 @@ function renderRelatedProducts(currentP) {
   
   container.innerHTML = related.map(item => `
     <div class="heritage-card rounded-lg overflow-hidden group">
-      <div class="relative aspect-[4/3] overflow-hidden">
+      <div class="relative aspect-[4/3] overflow-hidden bg-stone-100 dark:bg-stone-900">
         <img src="${item.images[0]}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <span class="absolute top-2 left-2 badge-era">${item.era}</span>
       </div>
       <div class="p-4">
+        <span class="badge-era text-[10px] inline-block mb-1.5">${item.era}</span>
         <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100 truncate">
           <a href="product-details.html?id=${item.id}" class="hover:text-amber-700 transition-colors">${item.title}</a>
         </h4>

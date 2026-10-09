@@ -353,7 +353,6 @@ function renderProducts() {
         <div class="heritage-card group rounded-lg overflow-hidden flex flex-col justify-between">
           <div class="relative overflow-hidden aspect-[4/3] bg-stone-100 dark:bg-stone-800">
             <img src="${item.images[0]}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80';" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-            <span class="absolute top-3 left-3 badge-era">${item.era}</span>
             
             <button onclick="toggleWishlist('${item.id}')" data-wishlist-id="${item.id}" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/90 dark:bg-stone-900/90 text-stone-700 dark:text-stone-200 flex items-center justify-center shadow hover:scale-110 transition-transform">
               <i class="${isWishlisted ? 'fa-solid fa-heart text-red-600' : 'fa-regular fa-heart'}"></i>
@@ -362,7 +361,10 @@ function renderProducts() {
 
           <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
             <div>
-              <span class="text-xs text-stone-500 dark:text-stone-300 font-medium">${item.style} • Circa ${item.circa}</span>
+              <div class="flex items-center gap-2 mb-1 flex-wrap">
+                <span class="badge-era text-[10px]">${item.era}</span>
+                <span class="text-xs text-stone-500 dark:text-stone-300 font-medium">${item.style} • Circa ${item.circa}</span>
+              </div>
               <h3 class="font-serif font-bold text-base sm:text-lg text-stone-900 dark:text-stone-100 mt-1 line-clamp-2 hover:text-amber-700 dark:hover:text-amber-500 transition-colors">
                 <a href="product-details.html?id=${item.id}">${item.title}</a>
               </h3>
@@ -391,12 +393,14 @@ function renderProducts() {
         <div class="heritage-card group rounded-lg overflow-hidden flex flex-col md:flex-row">
           <div class="relative md:w-64 aspect-[16/9] sm:aspect-[4/3] md:aspect-auto bg-stone-100 dark:bg-stone-800 flex-shrink-0">
             <img src="${item.images[0]}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80';" alt="${item.title}" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 badge-era">${item.era}</span>
           </div>
           <div class="p-4 sm:p-6 flex-1 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between gap-2 sm:gap-4 flex-wrap">
-                <span class="text-xs text-amber-700 dark:text-amber-500 font-semibold tracking-wide uppercase">${item.style} — ${item.circa}</span>
+                <div class="flex items-center gap-2">
+                  <span class="badge-era text-[10px]">${item.era}</span>
+                  <span class="text-xs text-amber-700 dark:text-amber-500 font-semibold tracking-wide uppercase">${item.style} — ${item.circa}</span>
+                </div>
                 <span class="text-xs text-stone-500 dark:text-stone-400"><i class="fa-solid fa-location-dot mr-1 text-stone-400 dark:text-stone-300"></i> ${item.origin}</span>
               </div>
               <h3 class="font-serif font-bold text-lg sm:text-xl text-stone-900 dark:text-stone-100 mt-1">

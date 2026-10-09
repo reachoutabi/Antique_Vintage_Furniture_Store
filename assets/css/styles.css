@@ -631,27 +631,53 @@ html.dark .badge-provenance {
   transform: scale(1);
 }
 
-/* Off-Canvas Drawers Transitions */
+/* Drawer Modal Overlays Fix - Prevent flex centering from distorting off-canvas drawers */
+#mobile-menu-drawer.modal-overlay,
+#wishlist-drawer.modal-overlay,
+#mobile-filter-drawer.modal-overlay {
+  display: block !important;
+}
+
+/* Off-Canvas Drawers Transitions & RTL Fixes */
 #mobile-menu-drawer > div {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  width: 100% !important;
+  max-width: 340px !important;
+  height: 100% !important;
+  height: 100vh !important;
   transform: translateX(-100%);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  z-index: 99999 !important;
 }
 
 [dir="rtl"] #mobile-menu-drawer > div {
+  left: auto !important;
+  right: 0 !important;
+  border-right-width: 0 !important;
+  border-left-width: 1px !important;
   transform: translateX(100%);
 }
 
-#mobile-menu-drawer.active > div {
-  transform: translateX(0);
+#mobile-menu-drawer.active > div,
+[dir="rtl"] #mobile-menu-drawer.active > div {
+  transform: translateX(0) !important;
 }
 
-/* Mobile Menu Submenu Gap Reduction Fix */
+/* Mobile Menu Submenu & Icon Fixes for RTL and LTR */
 #mobile-menu-drawer div.rounded-lg a,
 #mobile-menu-drawer div.rounded-lg a.flex,
 [dir="rtl"] #mobile-menu-drawer div.rounded-lg a,
 [dir="rtl"] #mobile-menu-drawer div.rounded-lg a.flex {
   justify-content: flex-start !important;
-  gap: 0.4rem !important;
+  gap: 0.5rem !important;
 }
 
 #mobile-menu-drawer div.rounded-lg a i,
@@ -662,6 +688,44 @@ html.dark .badge-provenance {
   margin-left: 0 !important;
   order: -1 !important;
   flex-shrink: 0 !important;
+}
+
+[dir="rtl"] #mobile-menu-drawer .brand-logo-container {
+  direction: ltr !important;
+}
+
+#mobile-menu-drawer nav {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Explicit RTL Right Alignment for Mobile Menu Drawer */
+[dir="rtl"] #mobile-menu-drawer,
+[dir="rtl"] #mobile-menu-drawer nav,
+[dir="rtl"] #mobile-menu-drawer nav div,
+[dir="rtl"] #mobile-menu-drawer nav a,
+[dir="rtl"] #mobile-menu-drawer .space-y-3.5,
+[dir="rtl"] #mobile-menu-drawer .space-y-3.5 a,
+[dir="rtl"] #mobile-menu-drawer .font-sans {
+  text-align: right !important;
+}
+
+[dir="rtl"] #mobile-menu-drawer .fa-chevron-right {
+  transform: rotate(180deg) !important;
+}
+
+#mobile-menu-drawer a.btn-heritage-gold {
+  white-space: nowrap !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  line-height: 1.2 !important;
+}
+
+#mobile-menu-drawer .footer-info-row span {
+  white-space: nowrap !important;
 }
 
 /* Mobile & Tablet Refine & Filter Button Alignment Fix */
@@ -800,7 +864,7 @@ html {
   z-index: 99;
 }
 
-/* Global Left Alignment in both LTR & RTL Layouts */
+/* Global Left Alignment in LTR Layout */
 body,
 main,
 section,
@@ -818,7 +882,11 @@ a,
 li,
 ul,
 ol,
-label,
+label {
+  text-align: left;
+}
+
+/* Global Right Alignment in RTL Layout */
 [dir="rtl"],
 [dir="rtl"] body,
 [dir="rtl"] main,
@@ -838,7 +906,7 @@ label,
 [dir="rtl"] ul,
 [dir="rtl"] ol,
 [dir="rtl"] label {
-  text-align: left !important;
+  text-align: right;
   unicode-bidi: plaintext;
 }
 
@@ -1810,12 +1878,40 @@ aside label span {
   }
 }
 
+
 /* 8. Dedicated Mobile Navigation Bar Offset (Removed) */
 @media (max-width: 1023px) {
   body {
     padding-bottom: 0 !important;
   }
 }
+
+/* 9. Responsive Navbar Rule: On screens 1024px and below, hide Theme, RTL Icon, and Book a View from the top navbar; show ONLY the Menu button */
+@media (max-width: 1024px) {
+  header > div > div > .rtl-toggle-btn,
+  header > div > div > .theme-toggle-btn,
+  header > div > div > a[href*="appointment"],
+  .header-sticky > div > div > .rtl-toggle-btn,
+  .header-sticky > div > div > .theme-toggle-btn,
+  .header-sticky > div > div > a[href*="appointment"] {
+    display: none !important;
+  }
+  .header-sticky #mobile-menu-btn,
+  header #mobile-menu-btn {
+    display: flex !important;
+  }
+}
+
+/* Ensure mobile menu drawer controls are ALWAYS visible inside the off-canvas menu */
+#mobile-menu-drawer .theme-toggle-btn,
+#mobile-menu-drawer .rtl-toggle-btn {
+  display: flex !important;
+}
+
+#mobile-menu-drawer a[href*="appointment"] {
+  display: flex !important;
+}
+
 /* Utility to hide scrollbar for scrollable containers */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
