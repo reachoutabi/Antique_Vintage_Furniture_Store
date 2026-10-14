@@ -420,25 +420,134 @@ html.dark .header-sticky {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Unified Desktop Header Navigation - Constant font size without jumps at 1024px, 1140px, 1280px */
+/* Unified Desktop Header Navigation - Constant font size without jumps */
 @media (min-width: 1024px) {
-  .header-sticky nav {
+  .header-sticky nav,
+  header nav {
     font-size: 0.8125rem !important; /* Constant 13px font size across all desktop widths */
+  }
+  .header-sticky #mobile-menu-btn,
+  header #mobile-menu-btn {
+    display: none !important;
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1200px) {
-  .header-sticky nav {
-    gap: 0.75rem !important; /* 12px gap for mid-desktop screens */
+/* Optimized Desktop Header Layout (1024px - 1280px) - Eliminates Nav Congestion */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  /* 1. Reduce side padding on header container to maximize available width */
+  .header-sticky > div,
+  header > div {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    gap: 0.65rem !important;
   }
-  .header-sticky .brand-logo-container span.font-serif {
-    font-size: 1.25rem !important;
-  }
-  .header-sticky a.btn-heritage-gold {
-    padding: 0.5rem 0.75rem !important;
-    font-size: 0.75rem !important;
-    white-space: nowrap !important;
+
+  /* 2. Compact logo to give ample breathing room to navigation */
+  .header-sticky .brand-logo-container,
+  header .brand-logo-container {
+    gap: 0.5rem !important;
     flex-shrink: 0 !important;
+    z-index: 10;
+  }
+  .header-sticky .brand-logo-container .rounded-full,
+  header .brand-logo-container .rounded-full {
+    width: 2rem !important;
+    height: 2rem !important;
+    min-width: 2rem !important;
+  }
+  .header-sticky .brand-logo-container .rounded-full i,
+  header .brand-logo-container .rounded-full i {
+    font-size: 0.85rem !important;
+  }
+  .header-sticky .brand-logo-container span.font-serif,
+  header .brand-logo-container span.font-serif {
+    font-size: 1.15rem !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.01em !important;
+  }
+  .header-sticky .brand-logo-container span.uppercase,
+  header .brand-logo-container span.uppercase {
+    display: none !important; /* Hide long subtitle in congested 1024px-1280px range */
+  }
+
+  /* 3. Spacious Nav Links without congestion */
+  .header-sticky nav,
+  header nav {
+    display: flex !important;
+    gap: 0.85rem !important; /* Generous breathing room between links */
+    font-size: 0.8125rem !important;
+    flex-shrink: 0 !important;
+    position: relative;
+    z-index: 20;
+    justify-content: center !important;
+  }
+  .header-sticky nav a,
+  header nav a {
+    padding: 0.25rem 0.2rem !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  #home-dropdown-wrapper {
+    position: relative;
+    z-index: 30;
+  }
+  #home-dropdown-wrapper > a {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  /* 4. Right action buttons container */
+  .header-sticky > div > div.flex.items-center,
+  header > div > div.flex.items-center {
+    gap: 0.75rem !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* Constant Button Sizes for Header Actions (Always Keep Constant Across All Viewports and Sticky State) */
+.header-sticky .rtl-toggle-btn,
+.header-sticky .theme-toggle-btn,
+header .rtl-toggle-btn,
+header .theme-toggle-btn {
+  width: 2rem !important;          /* w-8 (32px) */
+  height: 2rem !important;         /* h-8 (32px) */
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+  max-width: 2rem !important;
+  max-height: 2rem !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.header-sticky a.btn-heritage-gold,
+header a.btn-heritage-gold,
+.header-sticky .btn-heritage-gold,
+header .btn-heritage-gold {
+  padding: 0.625rem 1rem !important;   /* py-2.5 px-4 */
+  font-size: 0.75rem !important;        /* text-xs */
+  line-height: 1rem !important;
+  font-weight: 600 !important;         /* font-semibold */
+  letter-spacing: 0.05em !important;   /* tracking-wider */
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* For narrower desktop (1024px to 1100px) fine-tuning */
+@media (min-width: 1024px) and (max-width: 1100px) {
+  .header-sticky nav,
+  header nav {
+    gap: 0.65rem !important;
+    font-size: 0.78rem !important;
+  }
+  .header-sticky > div,
+  header > div {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    gap: 0.5rem !important;
   }
 }
 
@@ -841,6 +950,35 @@ input.pl-10,
   outline: none;
   border-color: var(--accent-gold);
   box-shadow: 0 0 0 3px var(--accent-gold-light);
+}
+
+/* Date Input Styling & Calendar Picker Indicator */
+input[type="date"] {
+  color-scheme: light;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Dark Mode: Date input calendar picker indicator turns white */
+html.dark input[type="date"] {
+  color-scheme: dark;
+}
+
+html.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.95;
+}
+
+html.dark input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
 }
 
 /* Explicit Button Centering Override */
@@ -1886,8 +2024,8 @@ aside label span {
   }
 }
 
-/* 9. Responsive Navbar Rule: On screens 1024px and below, hide Theme, RTL Icon, and Book a View from the top navbar; show ONLY the Menu button */
-@media (max-width: 1024px) {
+/* 9. Responsive Navbar Rule: On mobile/tablet screens (1023px and below), hide Theme, RTL Icon, and Book a View from the top navbar; show ONLY the Menu button */
+@media (max-width: 1023px) {
   header > div > div > .rtl-toggle-btn,
   header > div > div > .theme-toggle-btn,
   header > div > div > a[href*="appointment"],
