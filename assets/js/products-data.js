@@ -111,7 +111,7 @@ const PRODUCTS_DATA = [
     "rating": 5,
     "images": [
       "assets/images/art-deco-jules-leleu-desk-1.jpg",
-      "assets/images/art-deco-jules-leleu-desk-2.jpg"
+      "assets/images/art-deco-jules-leleu-desk-2.png"
     ],
     "shortDesc": "Streamlined French Art Deco executive desk exhibiting high-contrast burl amboyna veneer, brass hardware, and curved pedestal legs.",
     "fullDesc": "Designed by master French cabinetmaker Jules Leleu, this executive desk features book-matched amboyna burl panels framed in rich French walnut with hand-chased gilt bronze pulls."
@@ -313,3 +313,17 @@ const PRODUCTS_DATA = [
     "fullDesc": "Crafted for palatial dining salons during the French Second Empire. Each candelabrum features nine scrolling foliate branches supported by a sculpted gilt-bronze winged Victory, resting on a heavy red marble plinth."
   }
 ];
+
+function getProductById(id) {
+  if (typeof PRODUCTS_DATA === 'undefined' || !Array.isArray(PRODUCTS_DATA) || PRODUCTS_DATA.length === 0) {
+    return null;
+  }
+  if (!id) return PRODUCTS_DATA[0];
+  const cleanId = String(id).trim().toLowerCase();
+  const found = PRODUCTS_DATA.find(p => p.id && p.id.toLowerCase() === cleanId);
+  return found || PRODUCTS_DATA[0];
+}
+
+if (typeof window !== 'undefined') {
+  window.getProductById = getProductById;
+}

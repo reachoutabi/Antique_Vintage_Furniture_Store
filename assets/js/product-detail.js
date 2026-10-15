@@ -3,41 +3,79 @@
    Dynamic Data Population from URL Query, Gallery Lightbox, Tabs & Zoom
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+function getProductById(id) {
+  if (typeof PRODUCTS_DATA === 'undefined' || !Array.isArray(PRODUCTS_DATA) || PRODUCTS_DATA.length === 0) {
+    return null;
+  }
+  if (!id) return PRODUCTS_DATA[0];
+  const cleanId = String(id).trim().toLowerCase();
+  const found = PRODUCTS_DATA.find(p => p.id && p.id.toLowerCase() === cleanId);
+  return found || PRODUCTS_DATA[0];
+}
+
+function initProductDetails() {
   if (!document.getElementById('product-details-container')) return;
 
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id') || 'prod-101';
   const product = getProductById(productId);
 
+  if (!product) {
+    console.warn('Product not found for ID:', productId);
+    return;
+  }
+
   populateProductData(product);
   initGallery(product);
   initTabs();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initProductDetails);
+} else {
+  initProductDetails();
+}
 
 function populateProductData(p) {
-  document.title = `${p.title} | 💾 Curated Antique & Vintage | Aethelgard & Finch`;
+  if (!p) return;
 
-  // Breadcrumb
+  document.title = `${p.title} | Curated Antique & Vintage | Aethelgard`;
+
+  // Breadcrumbs
   const eraBreadcrumb = document.getElementById('detail-breadcrumb-era');
   const titleBreadcrumb = document.getElementById('detail-breadcrumb-title');
-  if (eraBreadcrumb) eraBreadcrumb.textContent = p.era;
-  if (titleBreadcrumb) titleBreadcrumb.textContent = p.title;
+  if (eraBreadcrumb) eraBreadcrumb.textContent = p.era || 'Era';
+  if (titleBreadcrumb) titleBreadcrumb.textContent = p.title || 'Piece Title';
 
   // Header Details
-  document.getElementById('detail-title').textContent = p.title;
-  document.getElementById('detail-era-badge').textContent = p.eraLabel;
-  document.getElementById('detail-price').textContent = p.priceFormatted;
-  document.getElementById('detail-short-desc').textContent = p.shortDesc;
-  document.getElementById('detail-full-desc').textContent = p.fullDesc;
+  const titleEl = document.getElementById('detail-title');
+  const eraBadgeEl = document.getElementById('detail-era-badge');
+  const priceEl = document.getElementById('detail-price');
+  const shortDescEl = document.getElementById('detail-short-desc');
+  const fullDescEl = document.getElementById('detail-full-desc');
+  const certIdEl = document.getElementById('detail-cert-id');
+
+  if (titleEl) titleEl.textContent = p.title;
+  if (eraBadgeEl) eraBadgeEl.textContent = p.eraLabel || p.era;
+  if (priceEl) priceEl.textContent = p.priceFormatted || (p.price ? `£${p.price.toLocaleString()}` : 'Price on Request');
+  if (shortDescEl) shortDescEl.textContent = p.shortDesc || '';
+  if (fullDescEl) fullDescEl.textContent = p.fullDesc || p.shortDesc || '';
+  if (certIdEl) certIdEl.textContent = p.provenanceDoc || 'DOC-VERIFIED-HERITAGE';
 
   // Specs Table
-  document.getElementById('detail-material').textContent = p.material;
-  document.getElementById('detail-dimensions').textContent = p.dimensions;
-  document.getElementById('detail-origin').textContent = p.origin;
-  document.getElementById('detail-circa').textContent = p.circa;
-  document.getElementById('detail-condition').textContent = p.condition;
-  document.getElementById('detail-provenance-code').textContent = p.provenanceDoc;
+  const materialEl = document.getElementById('detail-material');
+  const dimensionsEl = document.getElementById('detail-dimensions');
+  const originEl = document.getElementById('detail-origin');
+  const circaEl = document.getElementById('detail-circa');
+  const conditionEl = document.getElementById('detail-condition');
+  const docEl = document.getElementById('detail-provenance-code');
+
+  if (materialEl) materialEl.textContent = p.material || 'Solid Hardwood';
+  if (dimensionsEl) dimensionsEl.textContent = p.dimensions || 'Available upon inquiry';
+  if (originEl) originEl.textContent = p.origin || 'European Atelier';
+  if (circaEl) circaEl.textContent = p.circa || p.era || 'Historical Period';
+  if (conditionEl) conditionEl.textContent = p.condition || 'Preserved';
+  if (docEl) docEl.textContent = p.provenanceDoc || 'DOC-VERIFIED';
 
   // Action Buttons
   const bookBtn = document.getElementById('detail-book-btn');
@@ -47,35 +85,53 @@ function populateProductData(p) {
 
   const inquireBtn = document.getElementById('detail-inquire-btn');
   if (inquireBtn) {
-    inquireBtn.addEventListener('click', () => openInquireModal(p.title));
+    inquireBtn.onclick = () => {
+      if (typeof openInquireModal === 'function') {
+        openInquireModal(p.title);
+      } else if (typeof showToast === 'function') {
+        showToast(`Inquiry initiated for "${p.title}"`, 'info');
+      }
+    };
   }
 
   const wishlistBtn = document.getElementById('detail-wishlist-btn');
   if (wishlistBtn) {
     wishlistBtn.setAttribute('data-wishlist-id', p.id);
-    const isWishlisted = getWishlist().includes(p.id);
-    updateWishlistButtons(p.id, isWishlisted);
-    wishlistBtn.addEventListener('click', () => toggleWishlist(p.id));
+    const isWishlisted = typeof getWishlist === 'function' ? getWishlist().includes(p.id) : false;
+    if (typeof updateWishlistButtons === 'function') {
+      updateWishlistButtons(p.id, isWishlisted);
+    }
+    wishlistBtn.onclick = () => {
+      if (typeof toggleWishlist === 'function') {
+        toggleWishlist(p.id);
+      }
+    };
   }
 
   renderRelatedProducts(p);
 }
 
 function initGallery(p) {
+  if (!p) return;
   const mainImg = document.getElementById('detail-main-img');
   const thumbsContainer = document.getElementById('detail-thumbs-container');
-  if (!mainImg || !thumbsContainer) return;
+  if (!mainImg) return;
 
-  mainImg.src = p.images[0];
+  const images = (p.images && p.images.length > 0) ? p.images : ['assets/images/chippendale-mahogany-bookcase-1.jpg'];
 
-  thumbsContainer.innerHTML = p.images.map((imgUrl, idx) => `
-    <button onclick="changeMainImage('${imgUrl}', this)" class="thumb-btn ${idx === 0 ? 'ring-2 ring-amber-700' : 'opacity-70'} w-20 h-20 rounded heritage-border overflow-hidden flex-shrink-0 transition-all">
-      <img src="${imgUrl}" class="w-full h-full object-cover">
-    </button>
-  `).join('');
+  mainImg.src = images[0];
+  mainImg.alt = p.title || 'Antique Showcase';
+
+  if (thumbsContainer) {
+    thumbsContainer.innerHTML = images.map((imgUrl, idx) => `
+      <button type="button" onclick="changeMainImage('${imgUrl}', this)" class="thumb-btn ${idx === 0 ? 'ring-2 ring-amber-700 opacity-100' : 'opacity-70'} w-20 h-20 rounded heritage-border overflow-hidden flex-shrink-0 transition-all cursor-pointer" aria-label="Thumbnail ${idx + 1}">
+        <img src="${imgUrl}" alt="${p.title}" class="w-full h-full object-cover pointer-events-none">
+      </button>
+    `).join('');
+  }
 
   // Zoom / Lightbox binding
-  mainImg.addEventListener('click', () => openLightbox(mainImg.src));
+  mainImg.onclick = () => openLightbox(mainImg.src);
 }
 
 function changeMainImage(imgUrl, btn) {
@@ -83,11 +139,13 @@ function changeMainImage(imgUrl, btn) {
   if (mainImg) mainImg.src = imgUrl;
 
   document.querySelectorAll('.thumb-btn').forEach(b => {
-    b.classList.remove('ring-2', 'ring-amber-700');
+    b.classList.remove('ring-2', 'ring-amber-700', 'opacity-100');
     b.classList.add('opacity-70');
   });
-  btn.classList.add('ring-2', 'ring-amber-700');
-  btn.classList.remove('opacity-70');
+  if (btn) {
+    btn.classList.add('ring-2', 'ring-amber-700', 'opacity-100');
+    btn.classList.remove('opacity-70');
+  }
 }
 
 function openLightbox(imgSrc) {
@@ -104,7 +162,7 @@ function initTabs() {
   const tabPanes = document.querySelectorAll('.detail-tab-pane');
 
   tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.onclick = () => {
       const target = btn.getAttribute('data-tab');
 
       tabBtns.forEach(b => {
@@ -121,16 +179,19 @@ function initTabs() {
           pane.classList.add('hidden');
         }
       });
-    });
+    };
   });
 }
 
 function renderRelatedProducts(currentP) {
   const container = document.getElementById('detail-related-container');
-  if (!container) return;
+  if (!container || typeof PRODUCTS_DATA === 'undefined') return;
 
-  const related = PRODUCTS_DATA.filter(p => p.id !== currentP.id && (p.era === currentP.era || p.style === currentP.style)).slice(0, 3);
-  
+  let related = PRODUCTS_DATA.filter(p => p.id !== currentP.id && (p.era === currentP.era || p.style === currentP.style)).slice(0, 3);
+  if (related.length === 0) {
+    related = PRODUCTS_DATA.filter(p => p.id !== currentP.id).slice(0, 3);
+  }
+
   container.innerHTML = related.map(item => `
     <div class="heritage-card rounded-lg overflow-hidden group">
       <div class="relative aspect-[4/3] overflow-hidden bg-stone-100 dark:bg-stone-900">
@@ -153,7 +214,12 @@ function renderRelatedProducts(currentP) {
 function addToCartCurrentProduct() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id') || 'prod-101';
+  const product = getProductById(productId);
+  const title = product ? product.title : 'piece';
+
   if (typeof addToCart === 'function') {
     addToCart(productId);
+  } else if (typeof showToast === 'function') {
+    showToast(`Added "${title}" to your acquisition inquiry`, 'success');
   }
 }

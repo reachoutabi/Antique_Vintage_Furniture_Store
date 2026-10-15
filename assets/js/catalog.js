@@ -352,9 +352,11 @@ function renderProducts() {
       return `
         <div class="heritage-card group rounded-lg overflow-hidden flex flex-col justify-between">
           <div class="relative overflow-hidden aspect-[4/3] bg-stone-100 dark:bg-stone-800">
-            <img src="${item.images[0]}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80';" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-            
-            <button onclick="toggleWishlist('${item.id}')" data-wishlist-id="${item.id}" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/90 dark:bg-stone-900/90 text-stone-700 dark:text-stone-200 flex items-center justify-center shadow hover:scale-110 transition-transform">
+            <img src="${item.images[0]}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80';" alt="${item.title}" class="w-full h-full object-cover transition-all duration-700 ${item.images[1] ? 'group-hover:opacity-0' : 'group-hover:scale-105'}">
+            ${item.images[1] ? `
+              <img src="${item.images[1]}" alt="${item.title} - View 2" class="w-full h-full object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105 pointer-events-none">
+            ` : ''}
+            <button onclick="toggleWishlist('${item.id}')" data-wishlist-id="${item.id}" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/90 dark:bg-stone-900/90 text-stone-700 dark:text-stone-200 flex items-center justify-center shadow hover:scale-110 transition-transform z-10">
               <i class="${isWishlisted ? 'fa-solid fa-heart text-red-600' : 'fa-regular fa-heart'}"></i>
             </button>
           </div>
@@ -391,8 +393,11 @@ function renderProducts() {
       const isWishlisted = wishlist.includes(item.id);
       return `
         <div class="heritage-card group rounded-lg overflow-hidden flex flex-col md:flex-row">
-          <div class="relative md:w-64 aspect-[16/9] sm:aspect-[4/3] md:aspect-auto bg-stone-100 dark:bg-stone-800 flex-shrink-0">
-            <img src="${item.images[0]}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80';" alt="${item.title}" class="w-full h-full object-cover">
+          <div class="relative md:w-64 aspect-[16/9] sm:aspect-[4/3] md:aspect-auto bg-stone-100 dark:bg-stone-800 flex-shrink-0 overflow-hidden">
+            <img src="${item.images[0]}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80';" alt="${item.title}" class="w-full h-full object-cover transition-all duration-700 ${item.images[1] ? 'group-hover:opacity-0' : 'group-hover:scale-105'}">
+            ${item.images[1] ? `
+              <img src="${item.images[1]}" alt="${item.title} - View 2" class="w-full h-full object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105 pointer-events-none">
+            ` : ''}
           </div>
           <div class="p-4 sm:p-6 flex-1 flex flex-col justify-between">
             <div>

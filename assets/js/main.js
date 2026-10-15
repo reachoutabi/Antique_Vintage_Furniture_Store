@@ -308,7 +308,29 @@ function openQuickViewModal(productId) {
   const modal = document.getElementById('quick-view-modal');
   if (!modal) return;
 
-  document.getElementById('qv-img').src = item.images[0];
+  const qvImg = document.getElementById('qv-img');
+  if (qvImg) {
+    qvImg.src = item.images[0];
+    let qvThumbs = document.getElementById('qv-thumbs');
+    if (!qvThumbs && qvImg.parentElement) {
+      qvThumbs = document.createElement('div');
+      qvThumbs.id = 'qv-thumbs';
+      qvThumbs.className = 'flex gap-2 mt-3';
+      qvImg.parentElement.parentElement.insertBefore(qvThumbs, qvImg.parentElement.nextSibling);
+    }
+    if (qvThumbs) {
+      if (item.images && item.images.length > 1) {
+        qvThumbs.innerHTML = item.images.map((img, idx) => `
+          <button type="button" onclick="document.getElementById('qv-img').src='${img}'; this.parentElement.querySelectorAll('button').forEach(b => { b.classList.remove('ring-2', 'ring-amber-700'); b.classList.add('opacity-70'); }); this.classList.add('ring-2', 'ring-amber-700'); this.classList.remove('opacity-70');" class="qv-thumb-btn w-12 h-12 rounded border border-stone-300 dark:border-stone-700 overflow-hidden ${idx === 0 ? 'ring-2 ring-amber-700' : 'opacity-70'} hover:opacity-100 transition-all cursor-pointer" title="View ${idx + 1}">
+            <img src="${img}" class="w-full h-full object-cover pointer-events-none" alt="View ${idx + 1}">
+          </button>
+        `).join('');
+        qvThumbs.style.display = 'flex';
+      } else {
+        qvThumbs.style.display = 'none';
+      }
+    }
+  }
   document.getElementById('qv-title').textContent = item.title;
   document.getElementById('qv-era').textContent = item.eraLabel;
   document.getElementById('qv-price').textContent = item.priceFormatted;
@@ -419,7 +441,7 @@ function openPolicyModal(type) {
         </div>
       </div>
       <div class="text-xs text-stone-600 dark:text-stone-400 space-y-3 leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
-        <p><strong>1. Collector Discretion:</strong> At Aethelgard & Finch, we understand that high-value antique acquisitions require the utmost confidentiality. All consultations, private showroom viewings, and purchases remain strictly private unless public provenance attribution is explicitly granted by the buyer.</p>
+        <p><strong>1. Collector Discretion:</strong> At Aethelgard, we understand that high-value antique acquisitions require the utmost confidentiality. All consultations, private showroom viewings, and purchases remain strictly private unless public provenance attribution is explicitly granted by the buyer.</p>
         <p><strong>2. Information Collection:</strong> We only collect contact details strictly required for arranging viewings, curating custom piece requests, logistics crating, and issuing Guild-certified Certificates of Authenticity.</p>
         <p><strong>3. Data Security:</strong> Client records and acquisition archives are secured with bank-grade encryption and are never sold, rented, or disclosed to third-party commercial entities.</p>
         <p><strong>4. Viewing Appointment Data:</strong> Private appointment requests and security access codes generated for our Mayfair showroom are securely cleared following your scheduled gallery consultation.</p>
@@ -441,7 +463,7 @@ function openPolicyModal(type) {
         </div>
       </div>
       <div class="text-xs text-stone-600 dark:text-stone-400 space-y-3 leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
-        <p><strong>1. Lifetime Authenticity Guarantee:</strong> Every piece cataloged by Aethelgard & Finch is backed by an unconditional lifetime guarantee of authenticity for its designated historical period, maker, and provenance as stated in its accompanying sealed certificate.</p>
+        <p><strong>1. Lifetime Authenticity Guarantee:</strong> Every piece cataloged by Aethelgard is backed by an unconditional lifetime guarantee of authenticity for its designated historical period, maker, and provenance as stated in its accompanying sealed certificate.</p>
         <p><strong>2. Conservation Integrity:</strong> Any restoration or structural stabilization performed in our workshop utilizes period-accurate techniques (reversible hide glue, French polishing, hand-woven horsehair) that preserve cultural value without compromising original patina.</p>
         <p><strong>3. CITES & Heritage Compliance:</strong> All vintage rosewood, mahogany, and historic materials are legally verified and accompanied by required EU/UK/CITES antique documentation for lawful international transit.</p>
         <p><strong>4. White-Glove Logistics & Transit Insurance:</strong> All pieces are custom museum-crated and fully insured from our gallery doors until placement in your residence.</p>
@@ -537,7 +559,7 @@ function initBlogSearchAndFilters() {
 
     cards.forEach(card => {
       const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
-      const desc = (card.querySelector('p')?.textContent || '').toLowerCase();
+      const desc = (card.querySelector('p, a.text-xs, .text-xs')?.textContent || '').toLowerCase();
       const topic = (card.querySelector('.badge-era')?.textContent || '').trim();
 
       const matchesQuery = !query || title.includes(query) || desc.includes(query) || topic.toLowerCase().includes(query);
@@ -550,6 +572,11 @@ function initBlogSearchAndFilters() {
         card.style.display = 'none';
       }
     });
+
+    const countEl = document.getElementById('blog-articles-count');
+    if (countEl) {
+      countEl.textContent = `Showing ${visibleCount} Article${visibleCount === 1 ? '' : 's'}`;
+    }
 
     if (noResults) {
       if (visibleCount === 0) {
@@ -578,11 +605,11 @@ function initBlogSearchAndFilters() {
       activeTopic = btn.getAttribute('data-topic');
       topicBtns.forEach(b => {
         if (b.getAttribute('data-topic') === activeTopic) {
-          b.classList.remove('bg-stone-200', 'dark:bg-stone-800', 'text-stone-700', 'dark:text-stone-300');
+          b.classList.remove('bg-stone-100', 'bg-stone-200', 'dark:bg-stone-800', 'dark:bg-stone-800/90', 'text-stone-700', 'dark:text-stone-300');
           b.classList.add('bg-amber-700', 'text-white', 'active');
         } else {
           b.classList.remove('bg-amber-700', 'text-white', 'active');
-          b.classList.add('bg-stone-200', 'dark:bg-stone-800', 'text-stone-700', 'dark:text-stone-300');
+          b.classList.add('bg-stone-100', 'dark:bg-stone-800/90', 'text-stone-700', 'dark:text-stone-300');
         }
       });
       filterBlog();
@@ -596,10 +623,10 @@ function initBlogSearchAndFilters() {
     topicBtns.forEach(b => {
       if (b.getAttribute('data-topic') === 'all') {
         b.classList.add('bg-amber-700', 'text-white', 'active');
-        b.classList.remove('bg-stone-200', 'dark:bg-stone-800', 'text-stone-700', 'dark:text-stone-300');
+        b.classList.remove('bg-stone-100', 'bg-stone-200', 'dark:bg-stone-800', 'dark:bg-stone-800/90', 'text-stone-700', 'dark:text-stone-300');
       } else {
         b.classList.remove('bg-amber-700', 'text-white', 'active');
-        b.classList.add('bg-stone-200', 'dark:bg-stone-800', 'text-stone-700', 'dark:text-stone-300');
+        b.classList.add('bg-stone-100', 'dark:bg-stone-800/90', 'text-stone-700', 'dark:text-stone-300');
       }
     });
     filterBlog();
@@ -607,6 +634,81 @@ function initBlogSearchAndFilters() {
 
   if (resetBtn) resetBtn.addEventListener('click', resetAll);
   if (resetEmptyBtn) resetEmptyBtn.addEventListener('click', resetAll);
+
+  // Horizontal Scroll Controls for Mobile/Tablet Topic Filters (< 1024px)
+  const mobileTopicTrack = document.getElementById('blog-topic-filters-mobile');
+  const scrollLeftBtn = document.getElementById('blog-topic-scroll-left');
+  const scrollRightBtn = document.getElementById('blog-topic-scroll-right');
+
+  // Smooth centering when clicking any topic button (on mobile/tablet)
+  topicBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (mobileTopicTrack && window.innerWidth < 1024 && btn.closest('#blog-topic-filters-mobile')) {
+        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    });
+  });
+
+  if (mobileTopicTrack) {
+    function getScrollStep() {
+      return Math.max(160, Math.floor(mobileTopicTrack.clientWidth * 0.65));
+    }
+
+    function scrollByDir(direction) {
+      const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+      // In LTR: left button moves left (-), right button moves right (+)
+      // In RTL: standard CSS horizontal scroll is reversed, so we invert step to match the visual arrows
+      const sign = direction === 'left' ? -1 : 1;
+      const step = sign * getScrollStep() * (isRTL ? -1 : 1);
+      mobileTopicTrack.scrollBy({ left: step, behavior: 'smooth' });
+    }
+
+    if (scrollLeftBtn) {
+      scrollLeftBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        scrollByDir('left');
+      });
+    }
+    if (scrollRightBtn) {
+      scrollRightBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        scrollByDir('right');
+      });
+    }
+
+    // Convert vertical mouse wheel to horizontal scrolling on mobile/tablet
+    mobileTopicTrack.addEventListener('wheel', (e) => {
+      if (window.innerWidth < 1024 && e.deltaY !== 0) {
+        e.preventDefault();
+        mobileTopicTrack.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+
+    // Drag-to-scroll support for mouse on mobile/tablet view
+    let isDown = false;
+    let startX;
+    let scrollStartLeft;
+
+    mobileTopicTrack.addEventListener('mousedown', (e) => {
+      if (window.innerWidth >= 1024) return;
+      isDown = true;
+      mobileTopicTrack.classList.add('cursor-grabbing');
+      startX = e.pageX - mobileTopicTrack.offsetLeft;
+      scrollStartLeft = mobileTopicTrack.scrollLeft;
+    });
+    window.addEventListener('mouseup', () => {
+      isDown = false;
+      mobileTopicTrack.classList.remove('cursor-grabbing');
+    });
+    mobileTopicTrack.addEventListener('mousemove', (e) => {
+      if (!isDown || window.innerWidth >= 1024) return;
+      e.preventDefault();
+      const x = e.pageX - mobileTopicTrack.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      mobileTopicTrack.scrollLeft = scrollStartLeft - walk;
+    });
+  }
 }
+
 
 
