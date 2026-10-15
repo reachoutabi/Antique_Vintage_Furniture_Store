@@ -213,6 +213,7 @@ button.btn-heritage-gold {
   box-sizing: border-box !important;
   transition: all 0.25s ease;
   cursor: pointer;
+  white-space: nowrap !important;
 }
 
 .btn-heritage-gold.hidden,
@@ -276,6 +277,7 @@ button.btn-heritage-outline {
   gap: 0.5rem;
   transition: all 0.25s ease;
   cursor: pointer;
+  white-space: nowrap !important;
 }
 
 .btn-heritage-outline * {
@@ -630,7 +632,7 @@ header .btn-heritage-gold {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.3rem 0.75rem;
+  padding: 0.25rem 0.65rem;
   border-radius: 4px;
   background-color: rgba(28, 25, 23, 0.88);
   color: #f59e0b;
@@ -638,7 +640,12 @@ header .btn-heritage-gold {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  word-break: keep-all !important;
   z-index: 10;
 }
 
@@ -657,6 +664,8 @@ html.dark .badge-era {
   background-color: rgba(106, 123, 102, 0.15);
   color: #6A7B66;
   border: 1px solid rgba(106, 123, 102, 0.3);
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 html.dark .badge-provenance {
@@ -1834,9 +1843,8 @@ img, video, iframe, object, canvas, svg {
   height: auto;
 }
 
-p, h1, h2, h3, h4, h5, h6, span, a, td, th, label {
-  overflow-wrap: anywhere;
-  word-break: break-word;
+p, h1, h2, h3, h4, h5, h6, td, th, label {
+  overflow-wrap: break-word;
 }
 
 /* 2. Responsive Table Wrappers & Fallbacks */
@@ -1930,9 +1938,21 @@ table {
   .btn-heritage-primary,
   .btn-heritage-gold,
   .btn-heritage-outline {
-    white-space: normal !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
     max-width: 100% !important;
-    word-break: break-word !important;
+    padding-left: 0.875rem !important;
+    padding-right: 0.875rem !important;
+  }
+  
+  .badge-era,
+  .badge-provenance {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    flex-shrink: 0 !important;
+    font-size: 0.65rem !important;
+    padding: 0.2rem 0.5rem !important;
   }
   
   .header-sticky nav a {

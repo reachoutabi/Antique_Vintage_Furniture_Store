@@ -144,11 +144,11 @@
         </p>
 
         <!-- CTA Buttons Row -->
-        <div class="flex flex-col sm:flex-row items-start justify-start gap-3.5 pt-2 text-left self-start ml-0 mr-auto w-fit" style="margin-left: 0 !important; margin-right: auto !important; justify-content: flex-start !important; align-items: flex-start !important; text-align: left !important;">
-          <a href="products.html?collection=royal" class="btn-heritage-gold w-auto h-12 inline-flex items-center justify-center text-left text-sm px-7 shadow-lg shadow-amber-900/30 box-border self-start" style="margin-left: 0 !important;">
+        <div class="flex flex-row flex-wrap sm:flex-nowrap items-center justify-start gap-3 pt-2 text-left self-start ml-0 mr-auto w-fit" style="margin-left: 0 !important; margin-right: auto !important; justify-content: flex-start !important; align-items: flex-start !important; text-align: left !important;">
+          <a href="products.html?collection=royal" class="btn-heritage-gold w-auto h-11 sm:h-12 inline-flex items-center justify-center text-left text-xs sm:text-sm px-4 sm:px-7 shadow-lg shadow-amber-900/30 box-border self-start whitespace-nowrap" style="margin-left: 0 !important;">
             <i class="fa-solid fa-crown mr-2 text-amber-400"></i> Royal Collection
           </a>
-          <a href="contact.html#appointment" class="btn-heritage-outline w-auto h-12 inline-flex items-center justify-center text-left text-stone-200 border border-stone-500 hover:border-amber-400 hover:text-amber-400 text-sm px-7 box-border self-start" style="margin-left: 0 !important;">
+          <a href="contact.html#appointment" class="btn-heritage-outline w-auto h-11 sm:h-12 inline-flex items-center justify-center text-left text-stone-200 border border-stone-500 hover:border-amber-400 hover:text-amber-400 text-xs sm:text-sm px-4 sm:px-7 box-border self-start whitespace-nowrap" style="margin-left: 0 !important;">
             <i class="fa-regular fa-calendar-check mr-2"></i> Private Salon
           </a>
         </div>
@@ -185,16 +185,14 @@
           <h3 class="font-serif font-bold text-xl text-white mt-1">Art Deco Walnut & Amboyna Executive Desk by Jules Leleu</h3>
           <p class="text-xs text-stone-300 mt-1">Paris, France • Book-Matched Amboyna Burl & Gilded Bronze</p>
           
-          <div class="mt-4 grid grid-cols-3 items-center gap-2 pt-4 border-t border-stone-800 w-full">
-            <div class="text-left">
-              <span class="text-[10px] text-stone-300 uppercase tracking-wider block">Acquisition Valuation</span>
-              <span class="font-serif text-2xl font-bold text-amber-400">£24,000</span>
+          <div class="mt-4 flex items-center justify-between gap-2 pt-4 border-t border-stone-800 w-full">
+            <div class="text-left shrink-0">
+              <span class="text-[10px] text-stone-300 uppercase tracking-wider block whitespace-nowrap">Acquisition Valuation</span>
+              <span class="font-serif text-xl sm:text-2xl font-bold text-amber-400 whitespace-nowrap">£24,000</span>
             </div>
-            <div class="flex justify-center items-center text-center">
-              <button onclick="openQuickViewModal('prod-103')" class="btn-heritage-outline text-xs px-3 py-2 text-stone-200 border-stone-600 hover:border-amber-400 hover:text-amber-400" title="Quick View" aria-label="Quick View"><i class="fa-regular fa-eye"></i></button>
-            </div>
-            <div class="flex justify-end items-center text-right">
-              <a href="product-details.html?id=prod-103" class="btn-heritage-gold text-xs px-4 py-2 whitespace-nowrap">Acquire Piece</a>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="openQuickViewModal('prod-103')" class="btn-heritage-outline text-xs px-3 py-2 text-stone-200 border-stone-600 hover:border-amber-400 hover:text-amber-400 shrink-0" title="Quick View" aria-label="Quick View"><i class="fa-regular fa-eye"></i></button>
+              <a href="product-details.html?id=prod-103" class="btn-heritage-gold text-xs px-3 sm:px-4 py-2 whitespace-nowrap shrink-0">Acquire Piece</a>
             </div>
           </div>
         </div>
@@ -276,7 +274,7 @@
         <div id="vault-acquisitions-scroll" class="flex gap-6 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing px-1">
           
           <!-- Piece 1 -->
-          <div class="heritage-card group rounded-xl overflow-hidden flex flex-col justify-between shrink-0 w-[280px] sm:w-[320px] snap-start">
+          <div class="heritage-card group rounded-xl overflow-hidden flex flex-col justify-between shrink-0 w-[300px] sm:w-[320px] snap-start">
             <div class="relative overflow-hidden aspect-[4/3] bg-stone-200 dark:bg-stone-800">
               <img src="assets/images/hjorth-burl-birch-cabinet-1.jpg" alt="Art Deco Burl Birch Cocktail Cabinet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
               <button onclick="toggleWishlist('prod-111')" data-wishlist-id="prod-111" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/90 dark:bg-stone-900/90 text-stone-700 dark:text-stone-200 flex items-center justify-center shadow hover:scale-110 transition-transform">
@@ -285,9 +283,9 @@
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="badge-era text-[10px]">Art Deco</span>
-                  <span class="text-[11px] text-stone-500 font-medium">Stockholm, Sweden • Circa 1934</span>
+                <div class="flex items-center gap-2 mb-1 flex-wrap sm:flex-nowrap">
+                  <span class="badge-era text-[10px] whitespace-nowrap shrink-0">Art Deco</span>
+                  <span class="text-[11px] text-stone-500 font-medium whitespace-nowrap">Stockholm, Sweden • Circa 1934</span>
                 </div>
                 <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100 mt-1 hover:text-amber-700">
                   <a href="product-details.html?id=prod-111">Art Deco Burl Birch Cocktail Cabinet</a>
@@ -301,7 +299,7 @@
           </div>
 
           <!-- Piece 2 -->
-          <div class="heritage-card group rounded-xl overflow-hidden flex flex-col justify-between shrink-0 w-[280px] sm:w-[320px] snap-start">
+          <div class="heritage-card group rounded-xl overflow-hidden flex flex-col justify-between shrink-0 w-[300px] sm:w-[320px] snap-start">
             <div class="relative overflow-hidden aspect-[4/3] bg-stone-200 dark:bg-stone-800">
               <img src="assets/images/edwardian-dining-suite-1.jpg" alt="Edwardian Inlaid Dining Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
               <button onclick="toggleWishlist('prod-106')" data-wishlist-id="prod-106" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/90 dark:bg-stone-900/90 text-stone-700 dark:text-stone-200 flex items-center justify-center shadow hover:scale-110 transition-transform">
@@ -310,9 +308,9 @@
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="badge-era text-[10px]">Edwardian</span>
-                  <span class="text-[11px] text-stone-500 font-medium">Edinburgh, Scotland • Circa 1905</span>
+                <div class="flex items-center gap-2 mb-1 flex-wrap sm:flex-nowrap">
+                  <span class="badge-era text-[10px] whitespace-nowrap shrink-0">Edwardian</span>
+                  <span class="text-[11px] text-stone-500 font-medium whitespace-nowrap">Edinburgh, Scotland • Circa 1905</span>
                 </div>
                 <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100 mt-1 hover:text-amber-700">
                   <a href="product-details.html?id=prod-106">Edwardian Inlaid Mahogany Dining Suite</a>
@@ -326,7 +324,7 @@
           </div>
 
           <!-- Piece 3 -->
-          <div class="heritage-card group rounded-xl overflow-hidden flex flex-col justify-between shrink-0 w-[280px] sm:w-[320px] snap-start">
+          <div class="heritage-card group rounded-xl overflow-hidden flex flex-col justify-between shrink-0 w-[300px] sm:w-[320px] snap-start">
             <div class="relative overflow-hidden aspect-[4/3] bg-stone-200 dark:bg-stone-800">
               <img src="assets/images/teak-four-poster-bed-1.jpg" alt="Colonial Anglo-Indian Four-Poster Bed" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
               <button onclick="toggleWishlist('prod-108')" data-wishlist-id="prod-108" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/90 dark:bg-stone-900/90 text-stone-700 dark:text-stone-200 flex items-center justify-center shadow hover:scale-110 transition-transform">
@@ -335,9 +333,9 @@
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="badge-era text-[10px]">Colonial</span>
-                  <span class="text-[11px] text-stone-500 font-medium">Bombay, India • Circa 1870</span>
+                <div class="flex items-center gap-2 mb-1 flex-wrap sm:flex-nowrap">
+                  <span class="badge-era text-[10px] whitespace-nowrap shrink-0">Colonial</span>
+                  <span class="text-[11px] text-stone-500 font-medium whitespace-nowrap">Bombay, India • Circa 1870</span>
                 </div>
                 <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100 mt-1 hover:text-amber-700">
                   <a href="product-details.html?id=prod-108">Anglo-Indian Carved Teak 4-Poster Bed</a>
@@ -351,7 +349,7 @@
           </div>
 
           <!-- Piece 4 -->
-          <div class="heritage-card group rounded-xl overflow-hidden flex flex-col justify-between shrink-0 w-[280px] sm:w-[320px] snap-start">
+          <div class="heritage-card group rounded-xl overflow-hidden flex flex-col justify-between shrink-0 w-[300px] sm:w-[320px] snap-start">
             <div class="relative overflow-hidden aspect-[4/3] bg-stone-200 dark:bg-stone-800">
               <img src="assets/images/regency-giltwood-mirror-1.jpg" alt="Regency Giltwood Convex Girandole Mirror" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
               <button onclick="toggleWishlist('prod-104')" data-wishlist-id="prod-104" class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/90 dark:bg-stone-900/90 text-stone-700 dark:text-stone-200 flex items-center justify-center shadow hover:scale-110 transition-transform">
@@ -360,9 +358,9 @@
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="badge-era text-[10px]">Regency</span>
-                  <span class="text-[11px] text-stone-500 font-medium">London, England • Circa 1815</span>
+                <div class="flex items-center gap-2 mb-1 flex-wrap sm:flex-nowrap">
+                  <span class="badge-era text-[10px] whitespace-nowrap shrink-0">Regency</span>
+                  <span class="text-[11px] text-stone-500 font-medium whitespace-nowrap">London, England • Circa 1815</span>
                 </div>
                 <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100 mt-1 hover:text-amber-700">
                   <a href="product-details.html?id=prod-104">Regency Giltwood Convex Girandole Mirror</a>
